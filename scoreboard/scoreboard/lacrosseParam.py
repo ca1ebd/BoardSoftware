@@ -6,14 +6,15 @@ import os
 import rgbmatrix.core
 import threading
 import datetime
+import json
 
 sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/..'))
 from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
 from PIL import Image
 
-class ScoreBoard:
+class LacrosseBoard:
     mainMenuText = "Select Option\n\n1) Set Home Points\n2) Set Away Points\n3) Set Quarter\n4) Set Clock\n5) Start/Stop Clock\n"
-    def init(self):
+    def __init__(self):
         self.stoppedClock = threading.Event()
         self.font = graphics.Font()
         self.headerFont = graphics.Font()
@@ -121,7 +122,7 @@ class ScoreBoard:
         self.colorMode = self.colorMode ^ 1
         self.redrawDisplay()
 
-    def startStopClock(self):
+    def startStopClock(self, dataNotUsed):
         if self.stoppedClock.is_set() or self.firstClockStart:
             self.stoppedClock.clear()
             self.timer = threading.Timer(.05, self.drawClock)
@@ -129,9 +130,9 @@ class ScoreBoard:
         else:
             self.stoppedClock.set()
 
-    def setClock(self):
+    def setClock(self, newTime):
         os.system('clear')
-        clockStr = raw_input("\nSet clock (Format: MM:SS)\n")
+        clockStr = newTime
         tm = time.strptime(clockStr, "%M:%S")
         print(clockStr)
         self.gameClock = (tm.tm_sec + (60 * tm.tm_min)) * 1000000
@@ -176,16 +177,20 @@ class ScoreBoard:
         self.awayName = name
         self.redrawDisplay()
 
+    def setBrightness(self, brightness):
+        self.matrix.brightness = int(brightness)
+        self.redrawDisplay()
+
     def redrawDisplay(self):
         self.offscreen_canvas.Clear()
         if self.colorMode == 1:
             for x in range(0, self.matrix.width):
                 for y in range(0, self.matrix.width):
                     self.offscreen_canvas.SetPixel(x, y, 255, 255, 255)
-        graphics.DrawText(self.offscreen_canvas, self.headerFont, 2, self.headerYOffset, graphics.Color(0, 0, 255), "GUEST")
+        graphics.DrawText(self.offscreen_canvas, self.headerFont, 2, self.headerYOffset, self.awayColor, self.awayName)
         graphics.DrawText(self.offscreen_canvas, self.headerFont, self.quarterHeaderOffset, self.headerYOffset, self.quarterHeaderColor[self.colorMode], "Q")
         graphics.DrawText(self.offscreen_canvas, self.headerFont, self.quarterNumberOffset, self.headerYOffset, self.quarterColor[self.colorMode], str(self.quarter))
-        graphics.DrawText(self.offscreen_canvas, self.headerFont, self.homeHeaderXOffset, self.headerYOffset, graphics.Color(0, 0, 255), "HOME")
+        graphics.DrawText(self.offscreen_canvas, self.headerFont, self.homeHeaderXOffset, self.headerYOffset, self.homeColor, self.homeName)
         graphics.DrawText(self.offscreen_canvas, self.scoreFont, self.homeHeaderXOffset, self.headerYOffset, graphics.Color(0, 255, 0), "00")
         graphics.DrawText(self.offscreen_canvas, self.font, self.clockMinutesXOffset, self.clockTextYOffset, graphics.Color(0, 0, 255),str(datetime.timedelta(microseconds=self.gameClock))[2:4])
         graphics.DrawText(self.offscreen_canvas, self.font, self.clockSecondsXOffset, self.clockTextYOffset, graphics.Color(0, 0, 255),str(datetime.timedelta(microseconds=self.gameClock))[5:7])

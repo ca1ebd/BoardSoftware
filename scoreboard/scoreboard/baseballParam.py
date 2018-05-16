@@ -25,14 +25,14 @@ class BaseballBoard:
         self.awayName = "AWAY"
         self.homeColor = graphics.Color(0, 0, 255)
         self.awayColor = graphics.Color(0, 0, 255)
-        options = RGBMatrixOptions()
-        options.rows = 16
-        options.cols = 32
-        options.chain_length = 3
-        options.parallel = 3
-        options.multiplexing = 3
-        options.row_address_type = 2
-        options.brightness = 100
+        self.options = RGBMatrixOptions()
+        self.options.rows = 16
+        self.options.cols = 32
+        self.options.chain_length = 3
+        self.options.parallel = 3
+        self.options.multiplexing = 3
+        self.options.row_address_type = 2
+        self.options.brightness = 100
         self.colorMode = 0
         self.scoreImage = [[], []]
         self.scoreImage[0] = []
@@ -109,7 +109,7 @@ class BaseballBoard:
         self.awayScoreLeadingDigitXOffset = 2
         self.awayScoreTrailingDigitXOffset = 19
         self.scoreYOffset = 12
-        self.matrix = RGBMatrix(options=options)
+        self.matrix = RGBMatrix(options=self.options)
         self.offscreen_canvas = self.matrix.CreateFrameCanvas()
         self.timer = threading.Timer(.25, self.drawClock)
         self.timer.start()
@@ -162,6 +162,10 @@ class BaseballBoard:
         
     def setAwayName(self, name):
         self.awayName = name
+        self.redrawDisplay()
+
+    def setBrightness(self, brightness):
+        self.matrix.brightness = int(brightness)
         self.redrawDisplay()
 
     #drawing

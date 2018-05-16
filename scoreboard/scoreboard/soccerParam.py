@@ -12,9 +12,9 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/..'))
 from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
 from PIL import Image
 
-class ScoreBoard:
+class SoccerBoard:
     mainMenuText = "Select Option\n\n1) Set Home Points\n2) Set Away Points\n3) Set Period\n4) Set Clock\n5) Start/Stop Clock\n"
-    def init(self):
+    def __init__(self):
         self.stoppedClock = threading.Event()
         self.font = graphics.Font()
         self.headerFont = graphics.Font()
@@ -122,7 +122,7 @@ class ScoreBoard:
         self.colorMode = self.colorMode ^ 1
         self.redrawDisplay()
 
-    def startStopClock(self):
+    def startStopClock(self, dataNotUsed):
         if self.stoppedClock.is_set() or self.firstClockStart:
             self.stoppedClock.clear()
             self.timer = threading.Timer(.05, self.drawClock)
@@ -130,9 +130,9 @@ class ScoreBoard:
         else:
             self.stoppedClock.set()
 
-    def setClock(self):
+    def setClock(self, newTime):
         os.system('clear')
-        clockStr = raw_input("\nSet clock (Format: MM:SS)\n")
+        clockStr = newTime
         tm = time.strptime(clockStr, "%M:%S")
         print(clockStr)
         self.gameClock = (tm.tm_sec + (60 * tm.tm_min)) * 1000000
@@ -173,6 +173,10 @@ class ScoreBoard:
 
     def setAwayName(self, name):
         self.awayName = name
+        self.redrawDisplay()
+
+    def setBrightness(self, brightness):
+        self.matrix.brightness = int(brightness)
         self.redrawDisplay()
 
     def redrawDisplay(self):
@@ -220,6 +224,7 @@ class ScoreBoard:
                     self.stoppedClock.set()
                 else:
                     self.redrawDisplay()
+
 
 
 

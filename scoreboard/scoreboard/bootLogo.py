@@ -25,7 +25,7 @@ matrix = RGBMatrix(options=options)
 
 offscreen_canvas = matrix.CreateFrameCanvas()
 
-logo = Image.open('res/lederbord2.png')
+logo = Image.open('res/lederbord_logo.png')
 logo = logo.convert('RGB')
 
 basewidth = 96
@@ -39,11 +39,19 @@ matrix.SetImage(logo, 0, 0)
 x=0
 y=0
 
+x2 = -96
+
 while True:
 
     #matrix.SetPixel(0, 0, 255, 255, 255)
     matrix.SetImage(logo, x, y)
+    matrix.SetImage(logo, x2, y)
     x+=1
+    x2+=1
     if(x>96):
         x=-96
-    time.sleep(.2)
+
+    if (x2 > 96):
+        x2 = -96
+
+    time.sleep(.1)
