@@ -5,8 +5,7 @@ from flask import Flask, request
 import sys
 import zipfile
 import subprocess
-
-
+import bootLogo
 
 from baseballParam import BaseballBoard
 from soccerParam import SoccerBoard
@@ -18,10 +17,12 @@ class FlaskRPC:
 
     def __init__(self):
         self.board = None
+        # bootLogo.run()
         self.app = self.createApp()
         self.app.debug = True
         subprocess.call('whoami', shell=True)
         self.app.run(host='0.0.0.0', port=80)
+
 
     def createApp(self):
         app = Flask(__name__)
