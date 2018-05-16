@@ -18,6 +18,7 @@ class FlaskRPC:
 
     def __init__(self):
         self.rootView = None
+        self.board = None
         self.app = self.createApp()
         self.app.debug = True
         self.app.run(host='0.0.0.0', port=80)
@@ -102,20 +103,28 @@ class FlaskRPC:
         return 'Success'
 
     def createBaseball(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
         self.clear()
-        board = BaseballBoard(self.rootView)
+        self.board = BaseballBoard(self.rootView)
 
     def createSoccer(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
         self.clear()
-        board = SoccerBoard(self.rootView)
+        self.board = SoccerBoard(self.rootView)
 
     def createFootball(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
         self.clear()
-        board = FootballBoard(self.rootView)
+        self.board = FootballBoard(self.rootView)
 
     def createLacrosse(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
         self.clear()
-        board = LacrosseBoard(self.rootView)
+        self.board = LacrosseBoard(self.rootView)
 
     def info(self, dataStr=None):
         return "Connected"
