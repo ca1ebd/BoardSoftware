@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="Lederbord">
+  <component name="PublishConfigData" autoUpload="Always" serverName="lederbord">
     <serverData>
-      <paths name="Lederbord">
+      <paths name="lederbord">
         <serverdata>
           <mappings>
             <mapping deploy="/scoreboard/scoreboard" local="$PROJECT_DIR$" web="/" />
