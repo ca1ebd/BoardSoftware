@@ -15,6 +15,7 @@ from PIL import Image
 class RGBView(object):
 
     def __init__(self, parent, x , y):
+        self.rootDir = '/home/pi/scoreboard/scoreboard/ViewHierarchy/'
         self.__parent__ = parent
         self.__x__ = x
         self.__y__ = y
@@ -63,20 +64,20 @@ class RGBLabel(RGBView):
         if self.__textStyle__ == TextStyle.FONT:
             super(RGBLabel, self).__init__(parent, x, (y + 10))
             self.__font__ = graphics.Font()
-            self.__font__.LoadFont("../../fonts/7x13B.bdf")
+            self.__font__.LoadFont(self.rootDir + "../../fonts/7x13B.bdf")
         else:
             super(RGBLabel, self).__init__(parent, x, y)
             self.__font__ = []
-            self.__font__.append(Image.open('../res/bb_0.png').convert('RGB'))
-            self.__font__.append(Image.open('../res/bb_1.png').convert('RGB'))
-            self.__font__.append(Image.open('../res/bb_2.png').convert('RGB'))
-            self.__font__.append(Image.open('../res/bb_3.png').convert('RGB'))
-            self.__font__.append(Image.open('../res/bb_4.png').convert('RGB'))
-            self.__font__.append(Image.open('../res/bb_5.png').convert('RGB'))
-            self.__font__.append(Image.open('../res/bb_6.png').convert('RGB'))
-            self.__font__.append(Image.open('../res/bb_7.png').convert('RGB'))
-            self.__font__.append(Image.open('../res/bb_8.png').convert('RGB'))
-            self.__font__.append(Image.open('../res/bb_9.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_0.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_1.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_2.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_3.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_4.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_5.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_6.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_7.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_8.png').convert('RGB'))
+            self.__font__.append(Image.open(self.rootDir + '../res/bb_9.png').convert('RGB'))
         self.__parent__.addView(self)
         self.__parent__.redraw()
 
@@ -178,9 +179,11 @@ class Clock:
         self.__rootView__ = rootView
         self.__x__ = x
         self.__y__ = y
+        self.rootDir = '/home/pi/scoreboard/scoreboard/ViewHierarchy/'
+        
         self.minLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, '00')
         self.minLabel.setColor(graphics.Color(0, 0, 255))
-        self.seperatorImage = RGBImage(self.__rootView__, self.__x__+14, self.__y__+1, '../res/clocksep.png')
+        self.seperatorImage = RGBImage(self.__rootView__, self.__x__+14, self.__y__+1, self.rootDir + '../res/clocksep.png')
         self.secLabel = RGBLabel(self.__rootView__, self.__x__+17, self.__y__, '00')
         self.secLabel.setColor(graphics.Color(0, 0, 255))
 

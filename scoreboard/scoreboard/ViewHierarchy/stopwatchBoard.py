@@ -11,8 +11,6 @@ class splitView:
         self.dataStr2 = ""
         self.dataStr3 = ""
 
-
-
     def split(self, dataStr):
         self.dataStr3 = self.dataStr2
         self.dataStr2 = self.dataStr1
@@ -31,14 +29,15 @@ class splitView:
         self.__split2__.setTime(self.dataStr2)
         self.__split3__.setTime(self.dataStr3)
 
+
 class StopwatchBoard:
-    #TODO implement color scheme (splits are darker as they go down to help readability)
+    # TODO implement color scheme (splits are darker as they go down to help readability)
 
     def __init__(self, rootView):
         self.__rootView__ = rootView
 
         self.splitView = splitView(self.__rootView__, 1, 38)
-        self.mainClock = Clock(self.__rootView__, 33, 10) #TODO make big clock
+        self.mainClock = Clock(self.__rootView__, 33, 10) # TODO make big clock
 
     def setClock(self, dataStr):
         self.mainClock.setTime(dataStr)

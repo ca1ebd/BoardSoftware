@@ -8,15 +8,16 @@ class BSOIndicator:
         self.__rootView__ = rootView
         self.__x__ = x
         self.__y__ = y
+        self.rootDir = '/home/pi/scoreboard/scoreboard/ViewHierarchy/'
 
         # Balls Text Image
-        self.ballsImage = RGBImage(rootView, self.__x__, self.__y__+1, '../res/balls.png')
+        self.ballsImage = RGBImage(rootView, self.__x__, self.__y__+1, self.rootDir + '../res/balls.png')
         self.ballsLabel = RGBLabel(rootView, self.__x__+10, self.__y__, '0')
         # Strikes Text Image
-        self.strikesImage = RGBImage(rootView, self.__x__+19, self.__y__+1, '../res/strikes.png')
+        self.strikesImage = RGBImage(rootView, self.__x__+19, self.__y__+1, self.rootDir + '../res/strikes.png')
         self.strikesLabel = RGBLabel(rootView, self.__x__+29, self.__y__, '0')
         # Outs Text Image
-        self.outsImage = RGBImage(rootView, self.__x__+38, self.__y__+1, '../res/outs.png')
+        self.outsImage = RGBImage(rootView, self.__x__+38, self.__y__+1, self.rootDir + '../res/outs.png')
         self.outsLabel = RGBLabel(rootView, self.__x__+48, self.__y__, '0')
 
     def setBalls(self, balls):

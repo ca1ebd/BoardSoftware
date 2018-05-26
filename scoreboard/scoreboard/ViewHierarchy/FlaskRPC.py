@@ -19,6 +19,7 @@ from bootBoard import BootBoard
 class FlaskRPC:
 
     def __init__(self):
+        self.rootDir = '/home/pi/scoreboard/scoreboard/ViewHierarchy/'
         self.rootView = None
         self.board = None
         self.app = self.createApp()
