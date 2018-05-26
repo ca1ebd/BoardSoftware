@@ -119,7 +119,7 @@ class RGBBase:
         self.__options__.parallel = 3
         self.__options__.multiplexing = 3
         self.__options__.row_address_type = 2
-        self.__options__.brightness = 50
+        self.__options__.brightness = 100
 
         # Create the matrix stuff
         self.__matrix__ = RGBMatrix(options=self.__options__)

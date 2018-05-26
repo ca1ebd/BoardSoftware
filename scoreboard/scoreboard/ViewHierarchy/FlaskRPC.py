@@ -13,6 +13,7 @@ from soccerBoard import SoccerBoard
 from lacrosseBoard import LacrosseBoard
 from footballBoard import FootballBoard
 from stopwatchBoard import StopwatchBoard
+from bootBoard import BootBoard
 
 
 class FlaskRPC:
@@ -83,8 +84,9 @@ class FlaskRPC:
                 zipRef = zipfile.ZipFile(dir + zipName, 'r')
                 zipRef.extractall(dir)
                 zipRef.close()
-                subprocess.call('cd /home/pi/scoreboard/update && sh /home/pi/scoreboard/update/update.sh', shell=True)
-                subprocess.call('rm -rf /home/pi/scoreboard/update', shell=True)
+                subprocess.call('')
+                subprocess.call('cd /home/pi/scoreboard/update && sh /home/pi/scoreboard/update/update.sh > log.txt', shell=True)
+                #subprocess.call('rm -rf /home/pi/scoreboard/update', shell=True)
             except Exception:
                 return '{"Status":"Fail"}'
             return '{"Status":"OK"}'
@@ -133,6 +135,12 @@ class FlaskRPC:
         self.clear()
         self.board = StopwatchBoard(self.rootView)
 
+    def createBoot(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
+        self.clear()
+        self.board = BootBoard(self.rootView)
+
     def info(self, dataStr=None):
         return "Connected"
 
@@ -142,4 +150,5 @@ class FlaskRPC:
 
 if __name__ == '__main__':
     web = FlaskRPC()
+    web.createBoot("null")
 
