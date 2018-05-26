@@ -8,12 +8,13 @@ class DYIndicator:
         self.__rootView__ = rootView
         self.__x__ = x
         self.__y__ = y
+        self.rootDir = '/home/pi/scoreboard/scoreboard/ViewHierarchy/'
 
         # Downs Text Image
-        self.downsImage = RGBImage(rootView, self.__x__, self.__y__ + 1, '../res/down.png')
+        self.downsImage = RGBImage(rootView, self.__x__, self.__y__ + 1, self.rootDir + '../res/down.png')
         self.downsLabel = RGBLabel(rootView, self.__x__ + 10, self.__y__, '0')
         # Yards Text Image
-        self.yardsImage = RGBImage(rootView, self.__x__ + 19, self.__y__ + 1, '../res/yards.png')
+        self.yardsImage = RGBImage(rootView, self.__x__ + 19, self.__y__ + 1, self.rootDir + '../res/yards.png')
         self.yardsLabel = RGBLabel(rootView, self.__x__ + 29, self.__y__, '0')
 
 
