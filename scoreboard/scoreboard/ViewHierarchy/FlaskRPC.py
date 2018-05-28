@@ -5,6 +5,7 @@ from flask import Flask, request
 import sys
 import zipfile
 import subprocess
+from threading import Timer
 
 
 from rgbViews import *
@@ -22,9 +23,16 @@ class FlaskRPC:
         self.rootDir = '/home/pi/scoreboard/scoreboard/ViewHierarchy/'
         self.rootView = None
         self.board = None
+        #self.createBoot()
+        t = threading.Timer(0.5, self.startUpDelay)
+        t.start()
         self.app = self.createApp()
         self.app.debug = True
+        #self.app.run()
         self.app.run(host='0.0.0.0', port=80)
+
+    def startUpDelay(self):
+        subprocess.call("wget -qO- http://127.0.0.1/ &> /dev/null", shell=True)
 
     def createApp(self):
         app = Flask(__name__)
@@ -97,6 +105,10 @@ class FlaskRPC:
             request.environ.get('werkzeug.server.shutdown')()
             return "Quitting..."
 
+        @app.before_first_request
+        def before_first():
+            self.createBoot()
+
         return app
 
     def start(self, dataStr=None):
@@ -151,5 +163,5 @@ class FlaskRPC:
 
 if __name__ == '__main__':
     web = FlaskRPC()
-    web.createBoot("null")
+    #web.createBoot("null")
 
