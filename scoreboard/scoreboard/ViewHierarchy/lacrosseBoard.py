@@ -8,15 +8,21 @@ class LacrosseBoard:
         self.__rootView__ = rootView
 
         # Views
-        self.homeLabel = RGBLabel(self.__rootView__, 0, 0, "HOME")
-        self.homeScore = RGBLabel(self.__rootView__, 0, 12, "00", TextStyle.IMAGE)
-        self.awayLabel = RGBLabel(self.__rootView__, 63, 0, "AWAY")
-        self.awayScore = RGBLabel(self.__rootView__, 60, 12, "00", TextStyle.IMAGE)
+        self.awayLabel = RGBLabel(self.__rootView__, 0, 0, "GUEST")
+        self.awayScore = RGBLabel(self.__rootView__, 0, 12, "00", TextStyle.IMAGE)
+        self.homeLabel = RGBLabel(self.__rootView__, 63, 0, "HOME")
+        self.homeScore = RGBLabel(self.__rootView__, 60, 12, "00", TextStyle.IMAGE)
+        self.awayLabel.setColor(graphics.Color(0, 255, 255))
+        self.homeLabel.setColor(graphics.Color(0, 255, 255))
         self.clockIndicator = Clock(self.__rootView__, 33, 38)
         self.periodIndicator = PeriodIndicator(self.__rootView__, 43, 0, 'Q')
 
     def setHomeScore(self, dataStr):
-        self.homeScore.setText(dataStr)
+        # TODO make app send correct data instead of fixing here
+        if len(dataStr) == 1:
+            self.homeScore.setText("0" + dataStr)
+        else:
+            self.homeScore.setText(dataStr)
 
     def setHomeColor(self, dataStr):
         colorObject = json.loads(dataStr)
@@ -26,7 +32,11 @@ class LacrosseBoard:
         self.homeLabel.setColor(graphics.Color(red, green, blue))
 
     def setAwayScore(self, dataStr):
-        self.awayScore.setText(dataStr)
+        # TODO make app send correct data instead of fixing here
+        if len(dataStr) == 1:
+            self.awayScore.setText("0" + dataStr)
+        else:
+            self.awayScore.setText(dataStr)
 
     def setAwayColor(self, dataStr):
         colorObject = json.loads(dataStr)

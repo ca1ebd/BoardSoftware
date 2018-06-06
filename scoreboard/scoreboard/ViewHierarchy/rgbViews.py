@@ -118,8 +118,15 @@ class RGBBase:
         self.__options__.cols = 32
         self.__options__.chain_length = 3
         self.__options__.parallel = 3
+
+        # options for dev board
         self.__options__.multiplexing = 3
         self.__options__.row_address_type = 2
+
+        # options for production board
+        # self.__options__.multiplexing = 8
+        # self.__options__.row_address_type = 0
+        # self.__options__.pwm_lsb_nanoseconds = 90
         self.__options__.brightness = 100
 
         # Create the matrix stuff
@@ -167,7 +174,9 @@ class PeriodIndicator:
         self.__y__ = y
         self.letter = letter
         self.letterLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, self.letter)
+        self.letterLabel.setColor(graphics.Color(255, 255, 0))
         self.numLabel = RGBLabel(self.__rootView__, self.__x__+7, self.__y__, '1')
+        #self.numLabel.setColor(graphics.Color(255, 255, 0))
 
     def setPeriod(self, period):
         self.numLabel.setText(period)

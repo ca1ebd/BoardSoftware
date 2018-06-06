@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="189ed9e7-175d-4628-b9d2-00bee9098250" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/lederbord2.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/update/update.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ViewHierarchy/FlaskRPC.py" afterPath="$PROJECT_DIR$/ViewHierarchy/FlaskRPC.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ViewHierarchy/baseballBoard.py" afterPath="$PROJECT_DIR$/ViewHierarchy/baseballBoard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ViewHierarchy/bootBoard.py" afterPath="$PROJECT_DIR$/ViewHierarchy/bootBoard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ViewHierarchy/footballBoard.py" afterPath="$PROJECT_DIR$/ViewHierarchy/footballBoard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ViewHierarchy/lacrosseBoard.py" afterPath="$PROJECT_DIR$/ViewHierarchy/lacrosseBoard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ViewHierarchy/rgbViews.py" afterPath="$PROJECT_DIR$/ViewHierarchy/rgbViews.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ViewHierarchy/soccerBoard.py" afterPath="$PROJECT_DIR$/ViewHierarchy/soccerBoard.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,112 +22,33 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="baseballBoard.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewHierarchy/baseballBoard.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="100" selection-end-column="12" />
-              <folding>
-                <marker date="1527375966366" expanded="true" signature="56:1109" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="97:892" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="924:963" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="999:1042" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="1072:1109" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="1134:1644" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="1175:1430" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="1464:1644" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="1667:3246" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="1702:2261" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="2299:2339" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="2377:2596" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="2634:2674" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="2712:2931" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="2965:3010" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="3044:3088" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="3124:3170" ph="..." />
-                <marker date="1527375966366" expanded="true" signature="3203:3246" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rgbViews.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ViewHierarchy/rgbViews.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7824">
-              <caret line="163" column="40" lean-forward="true" selection-start-line="163" selection-start-column="40" selection-end-line="163" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stopwatchBoard.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewHierarchy/stopwatchBoard.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1580">
-              <caret line="33" column="88" lean-forward="false" selection-start-line="33" selection-start-column="88" selection-end-line="33" selection-end-column="88" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <marker date="1527375966378" expanded="true" signature="52:282" ph="..." />
-                <marker date="1527375966378" expanded="true" signature="1229:1248" ph="..." />
-                <marker date="1527375966378" expanded="true" signature="1229:1391" ph="..." />
-                <marker date="1527375966378" expanded="true" signature="1282:1322" ph="..." />
-                <marker date="1527375966378" expanded="true" signature="1353:1391" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FlaskRPC.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ViewHierarchy/FlaskRPC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-              <folding>
-                <element signature="e#22#33#0" expanded="true" />
-                <marker date="1527375966426" expanded="true" signature="405:4657" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="430:668" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="694:3290" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="795:2314" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="949:1128" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="989:1066" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="1558:1668" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="1823:2147" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="1919:2043" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="2386:3125" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="2403:3015" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="3175:3270" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="3326:3480" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="3525:3655" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="3698:3826" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="3871:4001" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="4046:4176" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="4222:4353" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="4394:4520" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="4555:4582" ph="..." />
-                <marker date="1527375966426" expanded="true" signature="4618:4657" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootLogo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bootLogo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="33" selection-end-column="38" />
+            <state relative-caret-position="336">
+              <caret line="92" column="39" lean-forward="true" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootBoard.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="update.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/update/update.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1536">
+              <caret line="35" column="65" lean-forward="false" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootBoard.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ViewHierarchy/bootBoard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="672">
+              <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -128,24 +56,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footballBoard.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewHierarchy/footballBoard.py">
+      <file leaf-file-name="baseballBoard.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ViewHierarchy/baseballBoard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1152">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <marker date="1527375966372" expanded="true" signature="55:683" ph="..." />
-                <marker date="1527375966372" expanded="true" signature="96:683" ph="..." />
-                <marker date="1527375966372" expanded="true" signature="707:2138" ph="..." />
-                <marker date="1527375966372" expanded="true" signature="742:1305" ph="..." />
-                <marker date="1527375966372" expanded="true" signature="1343:1383" ph="..." />
-                <marker date="1527375966372" expanded="true" signature="1421:1640" ph="..." />
-                <marker date="1527375966372" expanded="true" signature="1678:1718" ph="..." />
-                <marker date="1527375966372" expanded="true" signature="1756:1975" ph="..." />
-                <marker date="1527375966372" expanded="true" signature="2009:2054" ph="..." />
-                <marker date="1527375966372" expanded="true" signature="2090:2138" ph="..." />
-              </folding>
+            <state relative-caret-position="96">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -178,9 +94,14 @@
         <option value="$PROJECT_DIR$/lacrosseParam.py" />
         <option value="$PROJECT_DIR$/soccerParam.py" />
         <option value="$PROJECT_DIR$/ViewHierarchy/stopwatchBoard.py" />
-        <option value="$PROJECT_DIR$/ViewHierarchy/FlaskRPC.py" />
-        <option value="$PROJECT_DIR$/ViewHierarchy/bootBoard.py" />
+        <option value="$PROJECT_DIR$/ViewHierarchy/footballBoard.py" />
+        <option value="$PROJECT_DIR$/ViewHierarchy/lacrosseBoard.py" />
+        <option value="$PROJECT_DIR$/ViewHierarchy/soccerBoard.py" />
         <option value="$PROJECT_DIR$/ViewHierarchy/rgbViews.py" />
+        <option value="$PROJECT_DIR$/ViewHierarchy/baseballBoard.py" />
+        <option value="$PROJECT_DIR$/ViewHierarchy/FlaskRPC.py" />
+        <option value="$PROJECT_DIR$/update/update.py" />
+        <option value="$PROJECT_DIR$/ViewHierarchy/bootBoard.py" />
       </list>
     </option>
   </component>
@@ -212,6 +133,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -241,7 +163,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -460,13 +381,13 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21453287" sideWeight="0.50456256" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21453287" sideWeight="0.49543747" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21683967" sideWeight="0.49543747" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984433" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27133656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984433" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16854535" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -515,34 +436,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/baseballParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testDemo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/footballParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lacrosseParam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="37" column="31" lean-forward="false" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/soccerParam.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
@@ -816,128 +709,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ViewHierarchy/stopwatchBoard.py">
+    <entry file="file://$PROJECT_DIR$/res/lederbord2.png" />
+    <entry file="file://$PROJECT_DIR$/bootLogo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1580">
-          <caret line="33" column="88" lean-forward="false" selection-start-line="33" selection-start-column="88" selection-end-line="33" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <marker date="1527375966378" expanded="true" signature="52:282" ph="..." />
-            <marker date="1527375966378" expanded="true" signature="1229:1248" ph="..." />
-            <marker date="1527375966378" expanded="true" signature="1229:1391" ph="..." />
-            <marker date="1527375966378" expanded="true" signature="1282:1322" ph="..." />
-            <marker date="1527375966378" expanded="true" signature="1353:1391" ph="..." />
-          </folding>
+        <state relative-caret-position="1200">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="33" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/lederbord2.png">
+    <entry file="file://$PROJECT_DIR$/res/clocksep.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bootLogo.py">
+    <entry file="file://$PROJECT_DIR$/ViewHierarchy/soccerBoard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="33" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="1728">
+          <caret line="36" column="28" lean-forward="true" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewHierarchy/lacrosseBoard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="37" column="13" lean-forward="true" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewHierarchy/rgbViews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5328">
+          <caret line="123" column="45" lean-forward="true" selection-start-line="123" selection-start-column="45" selection-end-line="123" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewHierarchy/stopwatchBoard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1520">
+          <caret line="33" column="88" lean-forward="false" selection-start-line="33" selection-start-column="88" selection-end-line="33" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewHierarchy/footballBoard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2496">
+          <caret line="52" column="59" lean-forward="false" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ViewHierarchy/baseballBoard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="100" selection-end-column="12" />
+        <state relative-caret-position="96">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewHierarchy/FlaskRPC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="92" column="39" lean-forward="true" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update/update.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1536">
+          <caret line="35" column="65" lean-forward="false" selection-start-line="35" selection-start-column="65" selection-end-line="35" selection-end-column="65" />
           <folding>
-            <marker date="1527375966366" expanded="true" signature="56:1109" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="97:892" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="924:963" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="999:1042" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="1072:1109" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="1134:1644" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="1175:1430" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="1464:1644" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="1667:3246" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="1702:2261" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="2299:2339" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="2377:2596" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="2634:2674" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="2712:2931" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="2965:3010" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="3044:3088" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="3124:3170" ph="..." />
-            <marker date="1527375966366" expanded="true" signature="3203:3246" ph="..." />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ViewHierarchy/bootBoard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="672">
+          <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ViewHierarchy/footballBoard.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1152">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <marker date="1527375966372" expanded="true" signature="55:683" ph="..." />
-            <marker date="1527375966372" expanded="true" signature="96:683" ph="..." />
-            <marker date="1527375966372" expanded="true" signature="707:2138" ph="..." />
-            <marker date="1527375966372" expanded="true" signature="742:1305" ph="..." />
-            <marker date="1527375966372" expanded="true" signature="1343:1383" ph="..." />
-            <marker date="1527375966372" expanded="true" signature="1421:1640" ph="..." />
-            <marker date="1527375966372" expanded="true" signature="1678:1718" ph="..." />
-            <marker date="1527375966372" expanded="true" signature="1756:1975" ph="..." />
-            <marker date="1527375966372" expanded="true" signature="2009:2054" ph="..." />
-            <marker date="1527375966372" expanded="true" signature="2090:2138" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ViewHierarchy/FlaskRPC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-          <folding>
-            <element signature="e#22#33#0" expanded="true" />
-            <marker date="1527375966426" expanded="true" signature="405:4657" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="430:668" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="694:3290" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="795:2314" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="949:1128" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="989:1066" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="1558:1668" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="1823:2147" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="1919:2043" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="2386:3125" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="2403:3015" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="3175:3270" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="3326:3480" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="3525:3655" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="3698:3826" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="3871:4001" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="4046:4176" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="4222:4353" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="4394:4520" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="4555:4582" ph="..." />
-            <marker date="1527375966426" expanded="true" signature="4618:4657" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ViewHierarchy/rgbViews.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7824">
-          <caret line="163" column="40" lean-forward="true" selection-start-line="163" selection-start-column="40" selection-end-line="163" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

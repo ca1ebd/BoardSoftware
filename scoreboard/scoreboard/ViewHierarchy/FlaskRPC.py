@@ -4,7 +4,9 @@ import rgbmatrix.core
 from flask import Flask, request
 import sys
 import zipfile
+import time
 import subprocess
+import os
 from threading import Timer
 
 
@@ -82,23 +84,26 @@ class FlaskRPC:
 
             return '{"id":"%s", "response":"%s"}' % (uid, resp)
 
-        @app.route('/update/', methods=['POST'])
-        def update():
-            try:
-                f = request.files['update']
-                dir = '/home/pi/scoreboard/update/'
-                subprocess.call('mkdir ' + dir, shell=True)
-                zipName = 'update.zip'
-                f.save(dir + zipName)
-                zipRef = zipfile.ZipFile(dir + zipName, 'r')
-                zipRef.extractall(dir)
-                zipRef.close()
-                subprocess.call('')
-                subprocess.call('cd /home/pi/scoreboard/update && sh /home/pi/scoreboard/update/update.sh > log.txt', shell=True)
-                #subprocess.call('rm -rf /home/pi/scoreboard/update', shell=True)
-            except Exception:
-                return '{"Status":"Fail"}'
-            return '{"Status":"OK"}'
+        # @app.route('/update/', methods=['POST'])
+        # def update():
+        #     try:
+        #         f = request.files['update']
+        #         dir = '/home/pi/scoreboard/update/'
+        #         # newDir = os.path.dirname(dir)
+        #         # os.makedirs(newDir)
+        #         # os.system("mkdir " + dir)
+        #         subprocess.call('mkdir ' + dir, shell=True)
+        #         zipName = 'update.zip'
+        #         f.save(dir + zipName)
+        #         zipRef = zipfile.ZipFile(dir + zipName, 'r')
+        #         zipRef.extractall(dir)
+        #         zipRef.close()
+        #         subprocess.call('')
+        #         subprocess.call('cd /home/pi/scoreboard/update && sh /home/pi/scoreboard/update/update.sh > log.txt', shell=True)
+        #         subprocess.call('rm -rf /home/pi/scoreboard/update', shell=True)
+        #     except Exception:
+        #         return '{"Status":"Fail"}'
+        #     return '{"Status":"OK"}'
 
         @app.route('/quit/')
         def quit():
@@ -163,5 +168,8 @@ class FlaskRPC:
 
 if __name__ == '__main__':
     web = FlaskRPC()
+    # time.sleep(.5)
+    # web.startUpDelay()
+    # print("Ran")
     #web.createBoot("null")
 
