@@ -46,6 +46,15 @@ class RGBImage(RGBView):
     def render(self, matrix, canvas):
         matrix.SetImage(self.image, self.__x__, self.__y__)
 
+    def setImage(self, image):
+        if type(image) == str:
+            self.image = Image.open(image).convert('RGB')
+        else:
+            self.image = image
+        self.__parent__.addView(self)
+        self.__parent__.redraw()
+
+    #TODO either setPosition() or remove view individually
 
 class TextStyle(Enum):
     FONT = 0

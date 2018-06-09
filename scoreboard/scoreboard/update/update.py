@@ -32,11 +32,14 @@ class Update:
                 zipRef = zipfile.ZipFile(dir + zipName, 'r')
                 zipRef.extractall(dir)
                 zipRef.close()
-                subprocess.call('')
-                subprocess.call('cd ' + dir + ' && sh ' + dir + 'update.sh > log.txt',
+                #subprocess.call('')
+                command = 'cd ' + dir + ' && sh ' + dir + 'update.sh > log.txt'
+                print(command)
+                subprocess.call(command,
                                 shell=True)
                 subprocess.call('rm -rf ' + dir, shell=True)
             except Exception:
+                print(Exception)
                 return '{"Status":"Fail"}'
                 #TODO would like to return exception
             return '{"Status":"OK"}'
