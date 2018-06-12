@@ -44,7 +44,7 @@ class InningIndicator:
         self.arrowDownImage = self.arrowDownImage.convert('RGB')
         # self.arrowLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, u"\u2193")
         #self.arrowLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, u"\u2038")
-        self.arrowLabel = RGBImage(self.__rootView__, self.__x__ - 1, self.__y__ + 1, self.arrowUpImage)
+        self.arrowLabel = RGBImage(self.__rootView__, self.__x__ - 1, self.__y__ + 1, self.arrowDownImage)
         self.numLabel = RGBLabel(self.__rootView__, self.__x__+8, self.__y__, '1')
         #self.arrowLabel.setColor(graphics.Color(255, 255, 0))
         #self.numLabel.setColor(graphics.Color(255, 255, 0))
@@ -73,7 +73,7 @@ class BaseballBoard:
         self.homeLabel.setColor(graphics.Color(0, 255, 255))
         self.bsoIndicator = BSOIndicator(self.__rootView__, 0, 38)
         self.inningIndicator = InningIndicator(self.__rootView__, 43, 0)
-        self.inningIndicator.setInning('b3')
+        #self.inningIndicator.setInning('b3')
         self.clockIndicator = Clock(self.__rootView__, 65, 38)
 
     def setHomeScore(self, dataStr):
@@ -115,6 +115,9 @@ class BaseballBoard:
 
     def setOuts(self, dataStr):
         self.bsoIndicator.setOuts(dataStr)
+
+    def setInning(self, dataStr):
+        self.inningIndicator.setInning(dataStr)
 
 
 if __name__ == "__main__":
