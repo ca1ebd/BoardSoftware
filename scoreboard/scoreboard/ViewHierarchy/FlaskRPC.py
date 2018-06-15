@@ -17,6 +17,7 @@ from lacrosseBoard import LacrosseBoard
 from footballBoard import FootballBoard
 from stopwatchBoard import StopwatchBoard
 from bootBoard import BootBoard
+from fake_board import FakeBoard
 
 
 class FlaskRPC:
@@ -127,7 +128,8 @@ class FlaskRPC:
         if self.rootView == None:
             self.start()
         self.clear()
-        self.board = BaseballBoard(self.rootView)
+        #self.board = BaseballBoard(self.rootView)
+        self.board = FakeBoard(self.rootView)
 
     def createSoccer(self, dataStr=None):
         if self.rootView == None:
