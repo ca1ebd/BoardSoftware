@@ -7,9 +7,11 @@ class splitView:
         self.__x__ = x
         self.__y__ = y
         self.splits = 0
+        self.zeroString = "00:00"
         self.dataStr1 = ""
         self.dataStr2 = ""
         self.dataStr3 = ""
+
 
     def split(self, dataStr):
         self.dataStr3 = self.dataStr2
@@ -44,3 +46,4 @@ class StopwatchBoard:
 
     def split(self, dataStr):
         self.splitView.split(dataStr)
+

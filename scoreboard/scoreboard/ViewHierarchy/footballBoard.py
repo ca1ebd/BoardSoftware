@@ -69,6 +69,12 @@ class FootballBoard:
     def setQuarter(self, dataStr):
         self.periodIndicator.setPeriod(dataStr)
 
+    def setYards(self, dataStr):
+        self.bsoIndicator.yardsLabel.setText(dataStr)
+
+    def setDown(self, dataStr):
+        self.bsoIndicator.downsLabel.setText(dataStr)
+
 
 if __name__ == "__main__":
     rootView = RGBBase()

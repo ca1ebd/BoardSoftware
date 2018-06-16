@@ -35,7 +35,7 @@ class Update:
                 zipRef.extractall(dir)
                 zipRef.close()
                 #subprocess.call('')
-                command = 'cd ' + dir + ' && sh ' + dir + 'update.sh > log.txt'
+                command = 'cd ' + dir + ' && sh ' + dir + 'update.sh > ../log.txt'
                 print(command)
                 subprocess.call(command,
                                 shell=True)
@@ -45,6 +45,14 @@ class Update:
                 return '{"Status":"Fail"}'
                 #TODO would like to return exception
             return '{"Status":"OK"}'
+
+        @app.route("/getBuild/", methods=['GET'])
+        def getBuildNumber():
+            build_number = ""
+            dataFile = open("/home/pi/scoreboard/scoreboard/update/build_num.txt", "r")
+            for line in dataFile:
+                build_number+=line
+            return str(build_number)
 
         return app
 
