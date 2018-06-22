@@ -76,8 +76,16 @@ class FlaskRPC:
             try:
                 # Call the class/obj method is there is a '.'
                 if '.' in method:
-                    comps = method.split('.')
-                    resp = getattr(getattr(self, comps[0]), comps[1])(params)
+                    obj = self
+                    while '.' in method:
+                        print(method)
+                        print(obj, obj.__dict__)
+                        comps = method.split('.')
+                        print(comps[0])
+                        obj = getattr(obj, comps[0])
+                        method = '.'.join(comps[1:])
+                    print('END OF WHILE', obj, obj.__dict__)
+                    resp = getattr(obj, method)(params)
                 else:  # Call the local method
                     resp = getattr(self, method)(params)
             except KeyError:

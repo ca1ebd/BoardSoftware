@@ -205,9 +205,29 @@ class Clock:
         self.secLabel = RGBLabel(self.__rootView__, self.__x__+17, self.__y__, '00')
         self.secLabel.setColor(graphics.Color(0, 0, 255))
 
+        self.seconds = 0
+        self.format = '%M:%S'
+
     def setTime(self, timeStr):
         comps = timeStr.split(':')
         self.minLabel.setText(comps[0])
         self.secLabel.setText(comps[1])
         pass
+
+    def getTimeStr(self, dataStr=None):
+        return time.strftime(self.format, time.gmtime(self.seconds))
+
+    def startTimer(self, dataStr=None):
+        while True:
+            self.setTime(self.getTimeStr())
+            time.sleep(1)
+            self.seconds -= 1
+
+    def setSeconds(self, dataStr):
+        self.seconds = int(dataStr)
+        self.setTime(self.getTimeStr())
+
+    def setFormat(self, dataStr):
+        self.format = dataStr
+        self.setTime(self.getTimeStr())
 

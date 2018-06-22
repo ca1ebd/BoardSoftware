@@ -35,6 +35,7 @@ class StopwatchBoard:
 
     def __init__(self, rootView):
         self.__rootView__ = rootView
+        self.seconds = 0
 
         self.splitView = splitView(self.__rootView__, 1, 38)
         self.mainClock = Clock(self.__rootView__, 33, 10) # TODO make big clock
@@ -44,3 +45,19 @@ class StopwatchBoard:
 
     def split(self, dataStr):
         self.splitView.split(dataStr)
+
+    def timeStr(self, format):
+        return time.strftime(format, time.gmtime(self.seconds))
+
+    def startTimer(self, dataStr):
+        while True:
+            self.setClock(self.timeStr('%M:%S'))
+            self.seconds += 1
+            time.sleep(1)
+
+    def setSeconds(self, dataStr):
+        self.seconds = int(dataStr)
+        self.setClock(self.timeStr('%M:%S'))
+
+    def splitTimer(self, dataStr):
+        self.splitView.split(self.timeStr('%M:%S'))
