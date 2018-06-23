@@ -207,6 +207,7 @@ class Clock:
 
         self.seconds = 0
         self.format = '%M:%S'
+        self.running = False
 
     def setTime(self, timeStr):
         comps = timeStr.split(':')
@@ -218,10 +219,14 @@ class Clock:
         return time.strftime(self.format, time.gmtime(self.seconds))
 
     def startTimer(self, dataStr=None):
-        while True:
+        self.running = True
+        while self.running:
             self.setTime(self.getTimeStr())
             time.sleep(1)
             self.seconds -= 1
+
+    def stopTimer(self, dataStr=None):
+        self.running = False
 
     def setSeconds(self, dataStr):
         self.seconds = int(dataStr)
