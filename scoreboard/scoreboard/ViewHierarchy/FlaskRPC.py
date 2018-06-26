@@ -78,13 +78,13 @@ class FlaskRPC:
                 if '.' in method:
                     obj = self
                     while '.' in method:
-                        print(method)
-                        print(obj, obj.__dict__)
+                        # print(method)
+                        # print(obj, obj.__dict__)
                         comps = method.split('.')
-                        print(comps[0])
+                        # print(comps[0])
                         obj = getattr(obj, comps[0])
                         method = '.'.join(comps[1:])
-                    print('END OF WHILE', obj, obj.__dict__)
+                    # print('END OF WHILE', obj, obj.__dict__)
                     resp = getattr(obj, method)(params)
                 else:  # Call the local method
                     resp = getattr(self, method)(params)

@@ -4,7 +4,7 @@ import sys
 import os
 import rgbmatrix.core
 import threading
-import datetime
+from datetime import datetime
 from enum import Enum
 
 sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/..'))
@@ -209,28 +209,32 @@ class Clock:
         self.format = '%M:%S'
         self.running = False
 
+        self.startTime = None
+
     def setTime(self, timeStr):
         comps = timeStr.split(':')
         self.minLabel.setText(comps[0])
         self.secLabel.setText(comps[1])
         pass
 
-    def getTimeStr(self, dataStr=None):
-        return time.strftime(self.format, time.gmtime(self.seconds))
+    def getTimeStr(self, dataStr):
+        return time.strftime(self.format, time.gmtime(dataStr))  # self.seconds
 
     def startTimer(self, dataStr=None):
         self.running = True
+        self.startTime = datetime.now()
         while self.running:
-            self.setTime(self.getTimeStr())
-            time.sleep(1)
-            self.seconds -= 1
+            elapsed = (datetime.now() - self.startTime).total_seconds()-1
+            self.setTime(self.getTimeStr(self.seconds - elapsed))
+            time.sleep(0.1)
 
     def stopTimer(self, dataStr=None):
         self.running = False
 
     def setSeconds(self, dataStr):
         self.seconds = int(dataStr)
-        self.setTime(self.getTimeStr())
+        self.startTime = datetime.now()
+        self.setTime(self.getTimeStr(self.seconds))
 
     def setFormat(self, dataStr):
         self.format = dataStr
