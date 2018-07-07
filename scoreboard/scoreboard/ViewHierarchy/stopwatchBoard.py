@@ -42,6 +42,17 @@ class StopwatchBoard:
 
         self.splitView = splitView(self.__rootView__, 1, 38)
         self.mainClock = Clock(self.__rootView__, 33, 10) # TODO make big clock
+        self.mainClock.minLabel.setFont("../../fonts/vcr_28.bdf")
+        self.mainClock.minLabel.setOrigin(0, 21)
+        self.mainClock.minLabel.setColor(graphics.Color(0, 238, 255))
+        self.mainClock.secLabel.setFont("../../fonts/vcr_28.bdf")
+        self.mainClock.secLabel.setOrigin(50, 21)
+        self.mainClock.secLabel.setColor(graphics.Color(0, 238, 255))
+        self.mainClock.colon = RGBLabel(self.mainClock.__rootView__, 38, 21, ":")
+        self.mainClock.colon.setFont("../../fonts/vcr_28.bdf")
+        self.mainClock.colon.setColor(graphics.Color(0, 238, 255))
+        self.mainClock.__rootView__.__children__.remove(self.mainClock.seperatorImage)
+        self.mainClock.__rootView__.redraw()
 
         self.startTime = None
         self.format = "%M:%S"

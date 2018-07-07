@@ -108,6 +108,11 @@ class RGBLabel(RGBView):
         self.__color__ = color
         self.__parent__ .redraw()
 
+    def setFont(self, fontURL):
+        self.__font__ = graphics.Font()
+        self.__font__.LoadFont(self.rootDir + fontURL)
+        self.__parent__.redraw()
+
     def render(self, matrix, canvas):
         if self.__textStyle__ == TextStyle.FONT:
             graphics.DrawText(self.__parent__.__offscreen_canvas__, self.__font__, self.__x__, self.__y__, self.__color__, self.__text__)
