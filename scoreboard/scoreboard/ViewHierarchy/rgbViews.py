@@ -205,10 +205,10 @@ class Clock:
         self.rootDir = '/home/pi/scoreboard/scoreboard/ViewHierarchy/'
         
         self.minLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, '00')
-        self.minLabel.setColor(graphics.Color(0, 0, 255))
+        self.minLabel.setColor(graphics.Color(0, 255, 255))
         self.seperatorImage = RGBImage(self.__rootView__, self.__x__+14, self.__y__+1, self.rootDir + '../res/clocksep.png')
         self.secLabel = RGBLabel(self.__rootView__, self.__x__+17, self.__y__, '00')
-        self.secLabel.setColor(graphics.Color(0, 0, 255))
+        self.secLabel.setColor(graphics.Color(0, 255, 255))
 
         self.seconds = 0
         self.format = '%M:%S'

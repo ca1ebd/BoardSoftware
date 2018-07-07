@@ -13,7 +13,7 @@ class BootBoard:
         # hsize = int((float(self.logo.size[1]) * float(wpercent)))
         # self.logo = self.logo.resize((self.boardWidth, hsize))
         self.bootImage = RGBImage(self.__rootView__,3, 5, self.logo)
-        self.connectInfo = ConnectInfo(rootView, 0, 28)
+        self.connectInfo = ConnectInfo(rootView, 0, 23)
         print("ran")
 
 class ConnectInfo:

@@ -136,8 +136,8 @@ class FlaskRPC:
         if self.rootView == None:
             self.start()
         self.clear()
-        #self.board = BaseballBoard(self.rootView)
-        self.board = FakeBoard(self.rootView)
+        self.board = BaseballBoard(self.rootView)
+        #self.board = FakeBoard(self.rootView)
 
     def createSoccer(self, dataStr=None):
         if self.rootView == None:
