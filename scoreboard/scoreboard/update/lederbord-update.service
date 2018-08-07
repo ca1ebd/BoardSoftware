@@ -1,0 +1,12 @@
+[Unit]
+Description=Lederbord-Update
+After=multi-user.target
+
+[Service]
+User=root
+Group=root
+Type=idle
+ExecStart= /home/pi/scoreboard/scoreboard/update/update.py > /home/pi/logs/service.log 2>&1
+
+[Install]
+WantedBy=multi-user.target
