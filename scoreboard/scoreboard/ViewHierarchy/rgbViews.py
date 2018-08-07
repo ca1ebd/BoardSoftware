@@ -134,8 +134,8 @@ class RGBBase:
         self.__options__.parallel = 3
 
         # options for dev board
-        self.__options__.multiplexing = 3
-        self.__options__.row_address_type = 2
+        # self.__options__.multiplexing = 3
+        # self.__options__.row_address_type = 2
 
         # options for production board
         # self.__options__.multiplexing = 8

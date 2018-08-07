@@ -44,7 +44,7 @@ class InningIndicator:
         self.arrowDownImage = self.arrowDownImage.convert('RGB')
         # self.arrowLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, u"\u2193")
         #self.arrowLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, u"\u2038")
-        self.arrowLabel = RGBImage(self.__rootView__, self.__x__ - 1, self.__y__ + 1, self.arrowDownImage)
+        self.arrowLabel = RGBImage(self.__rootView__, self.__x__ - 1, self.__y__ + 1, self.arrowUpImage)
         self.numLabel = RGBLabel(self.__rootView__, self.__x__+8, self.__y__, '1')
         #self.arrowLabel.setColor(graphics.Color(255, 255, 0))
         #self.numLabel.setColor(graphics.Color(255, 255, 0))
