@@ -91,6 +91,7 @@ class FlaskRPC:
             except KeyError:
                 return '{"Error":"Could not find the requested method"}'
 
+            # ret = {"id": uid, "response": resp}
             return '{"id":"%s", "response":"%s"}' % (uid, resp)
 
         # @app.route('/update/', methods=['POST'])
@@ -170,7 +171,7 @@ class FlaskRPC:
         self.board = BootBoard(self.rootView)
 
     def info(self, dataStr=None):
-        return "Connected"
+        return "Connected - OLD"
 
     def clear(self, dataStr=None):
         self.rootView.removeAllViews()
