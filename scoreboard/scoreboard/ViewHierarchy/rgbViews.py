@@ -134,14 +134,14 @@ class RGBBase:
         self.__options__.parallel = 3
 
         # options for dev board
-        # self.__options__.multiplexing = 3
-        # self.__options__.row_address_type = 2
+        self.__options__.multiplexing = 3
+        self.__options__.row_address_type = 2
 
         # options for production board
         # self.__options__.multiplexing = 8
         # self.__options__.row_address_type = 0
-        # self.__options__.pwm_lsb_nanoseconds = 90
-        self.__options__.brightness = 100
+        self.__options__.pwm_lsb_nanoseconds = 90
+        # self.__options__.brightness = 100
 
         # Create the matrix stuff
         self.__matrix__ = RGBMatrix(options=self.__options__)
@@ -223,7 +223,8 @@ class Clock:
         pass
 
     def getTimeStr(self, dataStr):
-        return time.strftime(self.format, time.gmtime(dataStr))  # self.seconds
+        # return time.strftime(self.format, time.gmtime(dataStr))  # self.seconds
+        return "%02d:%02d" % (int(dataStr)/60, int(dataStr)%60)
 
     def startTimer(self, dataStr=None):
         self.running = True
