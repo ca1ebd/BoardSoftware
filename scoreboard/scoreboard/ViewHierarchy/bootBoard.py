@@ -1,6 +1,7 @@
 from PIL import Image
 from rgbViews import *
 from rgbmatrix import graphics
+from BoardInfo import GetWifiInfo, GetWifiConnectionInfo
 
 class BootBoard:
     def __init__(self, rootView):
@@ -24,12 +25,14 @@ class ConnectInfo:
         self.ssid = ''
         self.password = ''
 
-        data = self.getData()
-        for i in range(0, len(data)):
-            if data[i][0] == 'ssid':
-                self.ssid = data[i][1]
-            elif data[i][0] == 'wpa_passphrase':
-                self.password = data[i][1]
+        # data = GetWifiInfo()
+        # for i in range(0, len(data)):
+        #     if data[i][0] == 'ssid':
+        #         self.ssid = data[i][1]
+        #     elif data[i][0] == 'wpa_passphrase':
+        #         self.password = data[i][1]
+
+        (self.ssid, self.password) = GetWifiConnectionInfo()
 
 
         self.ssid_label = RGBLabel(self.__rootView__, self.__x__, self.__y__, self.ssid)
@@ -37,16 +40,16 @@ class ConnectInfo:
         self.password_label = RGBLabel(self.__rootView__, self.__x__, self.__y__ + 10, self.password)
         self.password_label.setColor(graphics.Color(0, 255, 255))
 
-    def getData(self):
-        data = []
-        dataFile = open("/etc/hostapd/hostapd.conf", "r")
-        for line in dataFile:
-            split = line.rstrip().split('=')
-            data.append(split)
-
-        #print(data)
-
-        return data
+    # def getData(self):
+    #     data = []
+    #     dataFile = open("/etc/hostapd/hostapd.conf", "r")
+    #     for line in dataFile:
+    #         split = line.rstrip().split('=')
+    #         data.append(split)
+    #
+    #     #print(data)
+    #
+    #     return data
 
 
 

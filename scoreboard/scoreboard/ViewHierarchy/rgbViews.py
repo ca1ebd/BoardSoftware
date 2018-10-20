@@ -11,6 +11,8 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/..'))
 from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
 from PIL import Image
 
+from BoardInfo import GetWifiConnectionInfo
+
 
 class RGBView(object):
 
@@ -133,15 +135,19 @@ class RGBBase:
         self.__options__.chain_length = 3
         self.__options__.parallel = 3
 
-        # options for dev board
-        self.__options__.multiplexing = 3
-        self.__options__.row_address_type = 2
+        (ssid, password) = GetWifiConnectionInfo()
+        if ssid == "Lederbord103":
+            # options for production board
+            self.__options__.multiplexing = 8
+            self.__options__.row_address_type = 0
+            self.__options__.pwm_lsb_nanoseconds = 90
+            # self.__options__.brightness = 100
+        else:
+            # options for dev board
+            self.__options__.multiplexing = 3
+            self.__options__.row_address_type = 2
 
-        # options for production board
-        # self.__options__.multiplexing = 8
-        # self.__options__.row_address_type = 0
-        self.__options__.pwm_lsb_nanoseconds = 90
-        # self.__options__.brightness = 100
+
 
         # Create the matrix stuff
         self.__matrix__ = RGBMatrix(options=self.__options__)
