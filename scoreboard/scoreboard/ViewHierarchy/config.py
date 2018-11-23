@@ -1,0 +1,8 @@
+legacy_panel_ssids = [
+    "LEDERBORD102",
+    "LEDERBORD103",
+    "LEDERBORD121",
+    "LEDERBORD122",
+    "LEDERBORD123",
+    "LEDERBORD128"
+]

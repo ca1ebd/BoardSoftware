@@ -11,7 +11,9 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/..'))
 from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
 from PIL import Image
 
+
 from BoardInfo import GetWifiConnectionInfo
+from config import *
 
 
 class RGBView(object):
@@ -136,7 +138,9 @@ class RGBBase:
         self.__options__.parallel = 3
 
         (ssid, password) = GetWifiConnectionInfo()
-        if ssid == "Lederbord103":
+        ssid = ssid.upper()
+        if ssid in legacy_panel_ssids:
+        # if ssid == "Lederbord103":
             # options for production board
             self.__options__.multiplexing = 8
             self.__options__.row_address_type = 0
