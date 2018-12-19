@@ -115,6 +115,16 @@ class FlaskRPC:
         #         return '{"Status":"Fail"}'
         #     return '{"Status":"OK"}'
 
+        @app.route('/getProperties/', methods=['GET'])
+        def get_properties():
+            try:
+                with open("/home/pi/info.json", "r") as in_json:
+                    return json.dumps(json.load(in_json))
+            except FileNotFoundError:
+                return "File Not Found Error"
+            except Exception as exception:
+                return "Unknown error" + str(exception)
+
         @app.route('/quit/')
         def quit():
             request.environ.get('werkzeug.server.shutdown')()
@@ -123,6 +133,7 @@ class FlaskRPC:
         @app.before_first_request
         def before_first():
             self.createBoot()
+
 
         return app
 
@@ -172,6 +183,15 @@ class FlaskRPC:
 
     def info(self, dataStr=None):
         return "Connected - OLD"
+
+    def getProperties(self, dataStr=None):
+        try:
+            with open("/home/pi/info.json", "r") as in_json:
+                return json.dumps(json.load(in_json))
+        except FileNotFoundError:
+            return "File Not Found Error"
+        except Exception as exception:
+            return "Unknown error" + str(exception)
 
     def clear(self, dataStr=None):
         self.rootView.removeAllViews()

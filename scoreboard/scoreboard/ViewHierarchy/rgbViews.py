@@ -6,13 +6,14 @@ import rgbmatrix.core
 import threading
 from datetime import datetime
 from enum import Enum
+import json
 
 sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/..'))
 from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
 from PIL import Image
 
 
-from BoardInfo import GetWifiConnectionInfo
+from BoardInfo import *
 from config import *
 
 
@@ -136,20 +137,34 @@ class RGBBase:
         self.__options__.cols = 32
         self.__options__.chain_length = 3
         self.__options__.parallel = 3
+        self.__board_info__ = self._getBoardInfo()
 
-        (ssid, password) = GetWifiConnectionInfo()
-        ssid = ssid.upper()
-        if ssid in legacy_panel_ssids:
-        # if ssid == "Lederbord103":
-            # options for production board
+
+        if self.__board_info__['panelType'] == 1:
+            # options for first-batch boards
             self.__options__.multiplexing = 8
             self.__options__.row_address_type = 0
             self.__options__.pwm_lsb_nanoseconds = 90
-            # self.__options__.brightness = 100
-        else:
-            # options for dev board
+        elif self.__board_info__['panelType'] == 2:
+            # options for second-batch boards
             self.__options__.multiplexing = 3
             self.__options__.row_address_type = 2
+
+
+
+        # (ssid, password) = GetWifiConnectionInfo()
+        # ssid = ssid.upper()
+        # if ssid in legacy_panel_ssids:
+        # # if ssid == "Lederbord103":
+        #     # options for production board
+        #     self.__options__.multiplexing = 8
+        #     self.__options__.row_address_type = 0
+        #     self.__options__.pwm_lsb_nanoseconds = 90
+        #     # self.__options__.brightness = 100
+        # else:
+        #     # options for dev board
+        #     self.__options__.multiplexing = 3
+        #     self.__options__.row_address_type = 2
 
 
 
@@ -160,6 +175,17 @@ class RGBBase:
 
         # Create arrays to hold the child views
         self.__children__ = []
+
+    def _getBoardInfo(self):
+        board_info = {}
+        if(os.path.exists("/home/pi/info.json")):
+            with open("/home/pi/info.json", "r") as in_json:
+                board_info = json.load(in_json)
+            return board_info
+        else:
+            generateInfo() #create file if nonexistent
+            return self._getBoardInfo()
+
 
     def redraw(self):
         self.__offscreen_canvas__.Clear()
