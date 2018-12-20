@@ -8,7 +8,7 @@ import time
 import subprocess
 import os
 from threading import Timer
-
+import traceback
 
 from rgbViews import *
 from baseballBoard import BaseballBoard
@@ -18,6 +18,10 @@ from footballBoard import FootballBoard
 from stopwatchBoard import StopwatchBoard
 from bootBoard import BootBoard
 from fake_board import FakeBoard
+
+from RPCObjects import *
+
+debug = True
 
 
 class FlaskRPC:
@@ -42,57 +46,59 @@ class FlaskRPC:
 
         @app.route('/', methods=['GET', 'POST'])
         def hello():
-            data = ''
-            if request.method == 'GET':
-                data = request.args.get('r', '')
-            elif request.method == 'POST':
-                if 'r' in request.form:
-                    data = request.form['r']
-                    print(data)
-                else:
-                    data = request.data
-
-            # Convert bytes to string if appropriate
+            if request.args.has_key("r"):
+                data = request.args["r"]
+                if debug: print "Found JSON RPC Request in GET Variables!"
+            elif request.form.get("r"):
+                data = request.form["r"]
+                if debug: print "Found JSON RPC Request in FORM Variables!"
+            else:
+                data = request.data
+                if debug: print "Found JSON RPC Request in POST Data!"
             try:
-                data = data.decode('utf-8')
-            except AttributeError:
-                pass
+                if debug: print data
+                # Parse the request
+                req = JsonRpcRequest(data)
+                if debug: print req.__dict__
+                # Handle the request
 
-            # Convert data to the json format
-            try:
-                req = json.loads(data)
-            except ValueError:
-                return '{"Error":"Could not decode request json"}'
+                # Provide a starting scope
+                obj = self
+                # Get the method
+                method = str(req.method)
+                # Get the "steps" to get there, i.e. what traversal to do
+                if debug: print method
+                steps = method.split('.')
+                if debug: print steps
 
-            # Get data from the request
-            try:
-                method = req['method']
-                params = req['params']
-                uid = req['id']
-            except KeyError:
-                return '{"Error":"Missing required entries in request json"}'
+                # Iterate through the scope to find the final object
+                for step in steps:
+                    # Replace our current scope with the object specified in the request
+                    obj = getattr(obj, step, None)
+                    # Make sure that the object/scope exists
+                    if obj is None:
+                        # Throw and error if it does not exist
+                        raise JsonRpcMethodNotFound("Could not find '%s' method" % req.method)
 
-            # Call the method
-            try:
-                # Call the class/obj method is there is a '.'
-                if '.' in method:
-                    obj = self
-                    while '.' in method:
-                        # print(method)
-                        # print(obj, obj.__dict__)
-                        comps = method.split('.')
-                        # print(comps[0])
-                        obj = getattr(obj, comps[0])
-                        method = '.'.join(comps[1:])
-                    # print('END OF WHILE', obj, obj.__dict__)
-                    resp = getattr(obj, method)(params)
-                else:  # Call the local method
-                    resp = getattr(self, method)(params)
-            except KeyError:
-                return '{"Error":"Could not find the requested method"}'
+                # Execute the function and return the response
+                ret = obj(**req.params)
 
-            # ret = {"id": uid, "response": resp}
-            return '{"id":"%s", "response":"%s"}' % (uid, resp)
+                # Make the response
+                resp = JsonRpcResponse()
+                resp['id'] = req.id
+                resp.load_success(ret)
+
+                # Return the response
+                return json.dumps(resp)
+            except Exception as exc:
+                if debug: traceback.print_exc()
+
+                # Make the response
+                errResp = JsonRpcResponse()
+                errResp.load_error(exc)
+
+                # Return the response
+                return json.dumps(errResp)
 
         # @app.route('/update/', methods=['POST'])
         # def update():

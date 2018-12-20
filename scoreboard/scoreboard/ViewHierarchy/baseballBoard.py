@@ -22,12 +22,15 @@ class BSOIndicator:
         self.outsLabel = RGBLabel(rootView, self.__x__+48, self.__y__, '0')
 
     def setBalls(self, balls):
+        balls = str(balls)
         self.ballsLabel.setText(balls)
 
     def setStrikes(self, strikes):
+        strikes = str(strikes)
         self.strikesLabel.setText(strikes)
 
     def setOuts(self, outs):
+        outs = str(outs)
         self.outsLabel.setText(outs)
 
 
@@ -76,48 +79,42 @@ class BaseballBoard:
         #self.inningIndicator.setInning('b3')
         self.clockIndicator = Clock(self.__rootView__, 65, 38)
 
-    def setHomeScore(self, dataStr):
+    def setHomeScore(self, score):
         #TODO make app send correct data instead of fixing here
-        if len(dataStr) == 1:
-            self.homeScore.setText("0" + dataStr)
+        score = str(score)
+        if len(score) == 1:
+            self.homeScore.setText("0" + score)
         else:
-            self.homeScore.setText(dataStr)
+            self.homeScore.setText(score)
 
-    def setHomeColor(self, dataStr):
-        colorObject = json.loads(dataStr)
-        red = int(colorObject["R"])
-        green = int(colorObject["G"])
-        blue = int(colorObject["B"])
-        self.homeLabel.setColor(graphics.Color(red, green, blue))
+    def setHomeColor(self, r, g, b):
+        self.homeLabel.setColor(graphics.Color(r, g, b))
 
-    def setAwayScore(self, dataStr):
+    def setAwayScore(self, score):
         # TODO make app send correct data instead of fixing here
-        if len(dataStr) == 1:
-            self.awayScore.setText("0" + dataStr)
+        score = str(score)
+        if len(score) == 1:
+            self.awayScore.setText("0" + score)
         else:
-            self.awayScore.setText(dataStr)
+            self.awayScore.setText(score)
 
-    def setAwayColor(self, dataStr):
-        colorObject = json.loads(dataStr)
-        red = int(colorObject["R"])
-        green = int(colorObject["G"])
-        blue = int(colorObject["B"])
-        self.awayLabel.setColor(graphics.Color(red, green, blue))
+    def setAwayColor(self, r, g, b):
+        self.awayLabel.setColor(graphics.Color(r, g, b))
 
     def setClock(self, dataStr):
         self.clockIndicator.setTime(dataStr)
 
-    def setBalls(self, dataStr):
-        self.bsoIndicator.setBalls(dataStr)
+    def setBalls(self, balls):
+        self.bsoIndicator.setBalls(balls)
 
-    def setStrikes(self, dataStr):
-        self.bsoIndicator.setStrikes(dataStr)
+    def setStrikes(self, strikes):
+        self.bsoIndicator.setStrikes(strikes)
 
-    def setOuts(self, dataStr):
-        self.bsoIndicator.setOuts(dataStr)
+    def setOuts(self, outs):
+        self.bsoIndicator.setOuts(outs)
 
-    def setInning(self, dataStr):
-        self.inningIndicator.setInning(dataStr)
+    def setInning(self, inning):
+        self.inningIndicator.setInning(inning)
 
 
 if __name__ == "__main__":

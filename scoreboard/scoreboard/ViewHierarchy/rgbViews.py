@@ -258,11 +258,11 @@ class Clock:
         self.secLabel.setText(comps[1])
         pass
 
-    def getTimeStr(self, dataStr):
+    def getTimeStr(self, seconds):
         # return time.strftime(self.format, time.gmtime(dataStr))  # self.seconds
-        return "%02d:%02d" % (int(dataStr)/60, int(dataStr)%60)
+        return "%02d:%02d" % (int(seconds)/60, int(seconds)%60)
 
-    def startTimer(self, dataStr=None):
+    def startTimer(self):
         self.running = True
         self.startTime = datetime.now()
         while self.running:
@@ -270,11 +270,11 @@ class Clock:
             self.setTime(self.getTimeStr(self.seconds - elapsed))
             time.sleep(0.1)
 
-    def stopTimer(self, dataStr=None):
+    def stopTimer(self):
         self.running = False
 
-    def setSeconds(self, dataStr):
-        self.seconds = int(dataStr)
+    def setSeconds(self, seconds):
+        self.seconds = int(seconds)
         self.startTime = datetime.now()
         self.setTime(self.getTimeStr(self.seconds))
 

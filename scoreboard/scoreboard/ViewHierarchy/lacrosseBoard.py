@@ -17,39 +17,34 @@ class LacrosseBoard:
         self.clockIndicator = Clock(self.__rootView__, 33, 38)
         self.periodIndicator = PeriodIndicator(self.__rootView__, 43, 0, 'Q')
 
-    def setHomeScore(self, dataStr):
+    def setHomeScore(self, score):
+        score = str(score)
         # TODO make app send correct data instead of fixing here
-        if len(dataStr) == 1:
-            self.homeScore.setText("0" + dataStr)
+        if len(score) == 1:
+            self.homeScore.setText("0" + score)
         else:
-            self.homeScore.setText(dataStr)
+            self.homeScore.setText(score)
 
-    def setHomeColor(self, dataStr):
-        colorObject = json.loads(dataStr)
-        red = int(colorObject["R"])
-        green = int(colorObject["G"])
-        blue = int(colorObject["B"])
-        self.homeLabel.setColor(graphics.Color(red, green, blue))
+    def setHomeColor(self, r, g, b):
+        self.homeLabel.setColor(graphics.Color(r, g, b))
 
-    def setAwayScore(self, dataStr):
+    def setAwayScore(self, score):
+        score = str(score)
         # TODO make app send correct data instead of fixing here
-        if len(dataStr) == 1:
-            self.awayScore.setText("0" + dataStr)
+        if len(score) == 1:
+            self.awayScore.setText("0" + score)
         else:
-            self.awayScore.setText(dataStr)
+            self.awayScore.setText(score)
 
-    def setAwayColor(self, dataStr):
-        colorObject = json.loads(dataStr)
-        red = int(colorObject["R"])
-        green = int(colorObject["G"])
-        blue = int(colorObject["B"])
-        self.awayLabel.setColor(graphics.Color(red, green, blue))
+    def setAwayColor(self, r, g, b):
+        self.awayLabel.setColor(graphics.Color(r, g, b))
 
     def setClock(self, dataStr):
         self.clockIndicator.setTime(dataStr)
 
-    def setQuarter(self, dataStr):
-        self.periodIndicator.setPeriod(dataStr)
+    def setQuarter(self, quarter):
+        quarter = str(quarter)
+        self.periodIndicator.setPeriod(quarter)
 
 if __name__ == "__main__":
     rootView = RGBBase()
