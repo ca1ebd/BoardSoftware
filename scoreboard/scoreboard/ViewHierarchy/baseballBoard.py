@@ -61,20 +61,43 @@ class InningIndicator:
 
 class BaseballBoard:
 
-    def __init__(self, rootView):
+    def __init__(self, rootView, defaults=None):
         self.__rootView__ = rootView
+
+        if defaults==None:
+            defaults = {
+                "homeScore": "00",
+                "awayScore": "00",
+                "balls": "0",
+                "strikes": "0",
+                "outs": "0",
+                "inning": "t1",
+                "homeColor": {"sR": 0, "G": 255, "B": 255},
+                "awayColor": {"R": 0, "G": 255, "B": 255},
+                "time": "00:00"
+            }
+
 
         # Views
         self.awayLabel = RGBLabel(self.__rootView__, 0, 0, "GUEST")
-        self.awayScore = RGBLabel(self.__rootView__, 0, 12, "00", TextStyle.IMAGE)
-        self.homeScore = RGBLabel(self.__rootView__, 60, 12, "00", TextStyle.IMAGE)
+        self.awayScore = RGBLabel(self.__rootView__, 0, 12, str(defaults["awayScore"]), TextStyle.IMAGE)
+        self.homeScore = RGBLabel(self.__rootView__, 60, 12, str(defaults["homeScore"]), TextStyle.IMAGE)
         self.homeLabel = RGBLabel(self.__rootView__, 63, 0, "HOME")
-        self.awayLabel.setColor(graphics.Color(0, 255, 255))
-        self.homeLabel.setColor(graphics.Color(0, 255, 255))
+        defAway = defaults["awayColor"]
+        defHome = defaults["homeColor"]
+        self.awayLabel.setColor(graphics.Color(defAway["R"], defAway["G"], defAway["B"]))
+        self.homeLabel.setColor(graphics.Color(defHome["R"], defHome["G"], defHome["B"]))
         self.bsoIndicator = BSOIndicator(self.__rootView__, 0, 38)
         self.inningIndicator = InningIndicator(self.__rootView__, 43, 0)
         #self.inningIndicator.setInning('b3')
         self.clockIndicator = Clock(self.__rootView__, 65, 38)
+
+        #set remaining defaults through functions
+        self.setClock(defaults["time"])
+        self.setBalls(str(defaults["balls"]))
+        self.setStrikes(str(defaults["strikes"]))
+        self.setOuts(str(defaults["outs"]))
+        self.setInning(defaults["inning"])
 
     def setHomeScore(self, dataStr):
         #TODO make app send correct data instead of fixing here

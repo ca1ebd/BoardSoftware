@@ -145,10 +145,11 @@ class FlaskRPC:
         return 'Success'
 
     def createBaseball(self, dataStr=None):
+        print(dataStr)
         if self.rootView == None:
             self.start()
         self.clear()
-        self.board = BaseballBoard(self.rootView)
+        self.board = BaseballBoard(self.rootView, defaults=dataStr)
         #self.board = FakeBoard(self.rootView)
 
     def createSoccer(self, dataStr=None):
