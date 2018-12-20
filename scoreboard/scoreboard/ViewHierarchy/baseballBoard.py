@@ -72,7 +72,7 @@ class BaseballBoard:
                 "strikes": "0",
                 "outs": "0",
                 "inning": "t1",
-                "homeColor": {"sR": 0, "G": 255, "B": 255},
+                "homeColor": {"R": 0, "G": 255, "B": 255},
                 "awayColor": {"R": 0, "G": 255, "B": 255},
                 "time": "00:00"
             }
