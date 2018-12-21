@@ -18,6 +18,7 @@ from footballBoard import FootballBoard
 from stopwatchBoard import StopwatchBoard
 from bootBoard import BootBoard
 from fake_board import FakeBoard
+from ultimateBoard import UltimateBoard
 
 
 class FlaskRPC:
@@ -171,6 +172,12 @@ class FlaskRPC:
             self.start()
         self.clear()
         self.board = LacrosseBoard(self.rootView, defaults=self.checkParams(dataStr))
+
+    def createUltimate(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
+        self.clear()
+        self.board = UltimateBoard(self.rootView, defaults=self.checkParams(dataStr))
 
     def createStopwatch(self, dataStr=None):
         if self.rootView == None:
