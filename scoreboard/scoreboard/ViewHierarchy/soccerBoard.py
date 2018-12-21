@@ -12,7 +12,7 @@ class SoccerBoard:
             defaults = {
                 "homeScore": "00",
                 "awayScore": "00",
-                "half": "3",
+                "half": "1",
                 "homeColor": {"R": 0, "G": 255, "B": 255},
                 "awayColor": {"R": 0, "G": 255, "B": 255},
                 "timeSeconds": "0"
@@ -64,7 +64,7 @@ class SoccerBoard:
         self.clockIndicator.setTime(dataStr)
 
     def setHalf(self, dataStr):
-        self.halfIndicator.setText(dataStr)
+        self.halfIndicator.setPeriod(dataStr)
 
 
 if __name__ == "__main__":
