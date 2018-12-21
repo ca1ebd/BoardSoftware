@@ -5,7 +5,7 @@ from rgbmatrix import graphics
 
 class BSOIndicator:
 
-    def __init__(self, rootView, x, y):
+    def __init__(self, rootView, x, y, defBalls='0', defStrikes='0', defOuts='0'):
         self.__rootView__ = rootView
         self.__x__ = x
         self.__y__ = y
@@ -13,13 +13,13 @@ class BSOIndicator:
 
         # Balls Text Image
         self.ballsImage = RGBImage(rootView, self.__x__, self.__y__+1, self.rootDir + '../res/balls.png')
-        self.ballsLabel = RGBLabel(rootView, self.__x__+10, self.__y__, '0')
+        self.ballsLabel = RGBLabel(rootView, self.__x__+10, self.__y__, defBalls)
         # Strikes Text Image
         self.strikesImage = RGBImage(rootView, self.__x__+19, self.__y__+1, self.rootDir + '../res/strikes.png')
-        self.strikesLabel = RGBLabel(rootView, self.__x__+29, self.__y__, '0')
+        self.strikesLabel = RGBLabel(rootView, self.__x__+29, self.__y__, defStrikes)
         # Outs Text Image
         self.outsImage = RGBImage(rootView, self.__x__+38, self.__y__+1, self.rootDir + '../res/outs.png')
-        self.outsLabel = RGBLabel(rootView, self.__x__+48, self.__y__, '0')
+        self.outsLabel = RGBLabel(rootView, self.__x__+48, self.__y__, defOuts)
 
     def setBalls(self, balls):
         self.ballsLabel.setText(balls)
@@ -33,7 +33,7 @@ class BSOIndicator:
 
 class InningIndicator:
 
-    def __init__(self, rootView, x, y):
+    def __init__(self, rootView, x, y, defInning="t1"):
         self.__rootView__ = rootView
         self.__x__ = x
         self.__y__ = y
@@ -44,25 +44,33 @@ class InningIndicator:
         self.arrowDownImage = self.arrowDownImage.convert('RGB')
         # self.arrowLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, u"\u2193")
         #self.arrowLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, u"\u2038")
-        self.arrowLabel = RGBImage(self.__rootView__, self.__x__ - 1, self.__y__ + 1, self.arrowUpImage)
-        self.numLabel = RGBLabel(self.__rootView__, self.__x__+8, self.__y__, '1')
+        if self.isTop(defInning):
+            self.arrowLabel = RGBImage(self.__rootView__, self.__x__ - 1, self.__y__ + 1, self.arrowUpImage)
+        else:
+            self.arrowLabel = RGBImage(self.__rootView__, self.__x__ - 1, self.__y__ + 1, self.arrowDownImage)
+        self.numLabel = RGBLabel(self.__rootView__, self.__x__+8, self.__y__, defInning[1:])
         #self.arrowLabel.setColor(graphics.Color(255, 255, 0))
         #self.numLabel.setColor(graphics.Color(255, 255, 0))
 
     def setInning(self, inning):
         self.numLabel.setText(inning[1:])
-        if inning[:1] == 'b':
+        if not self.isTop(inning):
             #self.arrowLabel.setText(u"\u2193")
             self.arrowLabel.setImage(self.arrowDownImage)
         else:
             #self.arrowLabel.setText(u"\u2191")
             self.arrowLabel.setImage(self.arrowUpImage)
 
+    def isTop(self, inning):
+        return inning[:1]=='t'
+
 
 class BaseballBoard:
 
     def __init__(self, rootView, defaults=None):
         self.__rootView__ = rootView
+
+        print(defaults)
 
         if defaults==None:
             defaults = {
@@ -74,7 +82,7 @@ class BaseballBoard:
                 "inning": "t1",
                 "homeColor": {"R": 0, "G": 255, "B": 255},
                 "awayColor": {"R": 0, "G": 255, "B": 255},
-                "time": "00:00"
+                "timeSeconds": "0"
             }
 
 
@@ -87,17 +95,17 @@ class BaseballBoard:
         defHome = defaults["homeColor"]
         self.awayLabel.setColor(graphics.Color(defAway["R"], defAway["G"], defAway["B"]))
         self.homeLabel.setColor(graphics.Color(defHome["R"], defHome["G"], defHome["B"]))
-        self.bsoIndicator = BSOIndicator(self.__rootView__, 0, 38)
-        self.inningIndicator = InningIndicator(self.__rootView__, 43, 0)
+        self.bsoIndicator = BSOIndicator(self.__rootView__, 0, 38, defBalls=defaults['balls'], defStrikes=defaults['strikes'], defOuts=defaults['outs'])
+        self.inningIndicator = InningIndicator(self.__rootView__, 43, 0, defInning=defaults["inning"])
         #self.inningIndicator.setInning('b3')
-        self.clockIndicator = Clock(self.__rootView__, 65, 38)
+        self.clockIndicator = Clock(self.__rootView__, 65, 38, defSeconds=defaults["timeSeconds"])
 
         #set remaining defaults through functions
-        self.setClock(defaults["time"])
-        self.setBalls(str(defaults["balls"]))
-        self.setStrikes(str(defaults["strikes"]))
-        self.setOuts(str(defaults["outs"]))
-        self.setInning(defaults["inning"])
+        #self.setClock(defaults["time"])
+        # self.setBalls(str(defaults["balls"]))
+        # self.setStrikes(str(defaults["strikes"]))
+        # self.setOuts(str(defaults["outs"]))
+        #self.setInning(defaults["inning"])
 
     def setHomeScore(self, dataStr):
         #TODO make app send correct data instead of fixing here

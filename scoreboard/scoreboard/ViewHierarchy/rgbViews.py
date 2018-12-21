@@ -218,14 +218,14 @@ class RGBBase:
 
 class PeriodIndicator:
 
-    def __init__(self, rootView, x, y, letter='P'):
+    def __init__(self, rootView, x, y, letter='P', defPeriod="1"):
         self.__rootView__ = rootView
         self.__x__ = x
         self.__y__ = y
         self.letter = letter
         self.letterLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, self.letter)
         self.letterLabel.setColor(graphics.Color(255, 255, 0))
-        self.numLabel = RGBLabel(self.__rootView__, self.__x__+7, self.__y__, '1')
+        self.numLabel = RGBLabel(self.__rootView__, self.__x__+7, self.__y__, defPeriod)
         #self.numLabel.setColor(graphics.Color(255, 255, 0))
 
     def setPeriod(self, period):
@@ -234,26 +234,31 @@ class PeriodIndicator:
 
 class Clock:
 
-    def __init__(self, rootView, x, y):
+    def __init__(self, rootView, x, y, defSeconds="0"):
         self.__rootView__ = rootView
         self.__x__ = x
         self.__y__ = y
         self.rootDir = '/home/pi/scoreboard/scoreboard/ViewHierarchy/'
+
+        stringSeconds = self.parseTime(self.getTimeStr(defSeconds))
         
-        self.minLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, '00')
+        self.minLabel = RGBLabel(self.__rootView__, self.__x__, self.__y__, stringSeconds[0])
         self.minLabel.setColor(graphics.Color(0, 255, 255))
         self.seperatorImage = RGBImage(self.__rootView__, self.__x__+14, self.__y__+1, self.rootDir + '../res/clocksep.png')
-        self.secLabel = RGBLabel(self.__rootView__, self.__x__+17, self.__y__, '00')
+        self.secLabel = RGBLabel(self.__rootView__, self.__x__+17, self.__y__, stringSeconds[1])
         self.secLabel.setColor(graphics.Color(0, 255, 255))
 
-        self.seconds = 0
+        self.seconds = int(defSeconds)
         self.format = '%M:%S'
         self.running = False
 
         self.startTime = None
 
+    def parseTime(self, timeStr):
+        return timeStr.split(':')
+
     def setTime(self, timeStr):
-        comps = timeStr.split(':')
+        comps = self.parseTime(timeStr)
         self.minLabel.setText(comps[0])
         self.secLabel.setText(comps[1])
         pass

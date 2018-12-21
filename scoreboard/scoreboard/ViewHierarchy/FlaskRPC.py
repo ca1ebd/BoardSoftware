@@ -72,6 +72,8 @@ class FlaskRPC:
             except KeyError:
                 return '{"Error":"Missing required entries in request json"}'
 
+
+
             # Call the method
             try:
                 # Call the class/obj method is there is a '.'
@@ -149,26 +151,26 @@ class FlaskRPC:
         if self.rootView == None:
             self.start()
         self.clear()
-        self.board = BaseballBoard(self.rootView, defaults=dataStr)
+        self.board = BaseballBoard(self.rootView, defaults=self.checkParams(dataStr))
         #self.board = FakeBoard(self.rootView)
 
     def createSoccer(self, dataStr=None):
         if self.rootView == None:
             self.start()
         self.clear()
-        self.board = SoccerBoard(self.rootView)
+        self.board = SoccerBoard(self.rootView, defaults=self.checkParams(dataStr))
 
     def createFootball(self, dataStr=None):
         if self.rootView == None:
             self.start()
         self.clear()
-        self.board = FootballBoard(self.rootView)
+        self.board = FootballBoard(self.rootView, defaults=self.checkParams(dataStr))
 
     def createLacrosse(self, dataStr=None):
         if self.rootView == None:
             self.start()
         self.clear()
-        self.board = LacrosseBoard(self.rootView)
+        self.board = LacrosseBoard(self.rootView, defaults=self.checkParams(dataStr))
 
     def createStopwatch(self, dataStr=None):
         if self.rootView == None:
@@ -184,6 +186,12 @@ class FlaskRPC:
 
     def info(self, dataStr=None):
         return "Connected - OLD"
+
+    def checkParams(self, params):
+        if type(params) == dict:
+            return params
+        else:
+            return None
 
     def getProperties(self, dataStr=None):
         try:

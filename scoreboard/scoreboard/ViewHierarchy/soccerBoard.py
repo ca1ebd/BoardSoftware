@@ -4,19 +4,33 @@ import json
 
 class SoccerBoard:
 
-    def __init__(self, rootView):
+    def __init__(self, rootView, defaults=None):
         self.__rootView__ = rootView
+
+        if defaults==None:
+            #set default values here
+            defaults = {
+                "homeScore": "00",
+                "awayScore": "00",
+                "half": "3",
+                "homeColor": {"R": 0, "G": 255, "B": 255},
+                "awayColor": {"R": 0, "G": 255, "B": 255},
+                "timeSeconds": "0"
+            }
 
         # Views
         self.awayLabel = RGBLabel(self.__rootView__, 0, 0, "GUEST")
-        self.awayScore = RGBLabel(self.__rootView__, 0, 12, "00", TextStyle.IMAGE)
+        self.awayScore = RGBLabel(self.__rootView__, 0, 12, defaults["awayScore"], TextStyle.IMAGE)
         self.homeLabel = RGBLabel(self.__rootView__, 63, 0, "HOME")
-        self.homeScore = RGBLabel(self.__rootView__, 60, 12, "00", TextStyle.IMAGE)
-        self.awayLabel.setColor(graphics.Color(0, 255, 255))
-        self.homeLabel.setColor(graphics.Color(0, 255, 255))
-        self.clockIndicator = Clock(self.__rootView__, 33, 38)
-        self.halfIndicator = RGBLabel(self.__rootView__, 43, 0, 'H1')
-        self.halfIndicator.setColor(graphics.Color(255, 255, 0))
+        self.homeScore = RGBLabel(self.__rootView__, 60, 12, defaults["homeScore"], TextStyle.IMAGE)
+        defAway = defaults["awayColor"]
+        defHome = defaults["homeColor"]
+        self.awayLabel.setColor(graphics.Color(defAway["R"], defAway["G"], defAway["B"]))
+        self.homeLabel.setColor(graphics.Color(defHome["R"], defHome["G"], defHome["B"]))
+        self.clockIndicator = Clock(self.__rootView__, 33, 38, defSeconds=defaults['timeSeconds'])
+        # self.halfIndicator = RGBLabel(self.__rootView__, 43, 0, 'H1')
+        self.halfIndicator = PeriodIndicator(self.__rootView__, 43, 0, "H", defPeriod=defaults['half'])
+        #self.halfIndicator.setColor(graphics.Color(255, 255, 0))
 
     def setHomeScore(self, dataStr):
         # TODO make app send correct data instead of fixing here

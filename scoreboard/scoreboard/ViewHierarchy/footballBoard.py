@@ -4,7 +4,7 @@ import json
 
 class DYIndicator:
 
-    def __init__(self, rootView, x, y):
+    def __init__(self, rootView, x, y, defDowns="0", defYards="0"):
         self.__rootView__ = rootView
         self.__x__ = x
         self.__y__ = y
@@ -12,28 +12,43 @@ class DYIndicator:
 
         # Downs Text Image
         self.downsImage = RGBImage(rootView, self.__x__, self.__y__ + 1, self.rootDir + '../res/down.png')
-        self.downsLabel = RGBLabel(rootView, self.__x__ + 10, self.__y__, '0')
+        self.downsLabel = RGBLabel(rootView, self.__x__ + 10, self.__y__, defDowns)
         # Yards Text Image
         self.yardsImage = RGBImage(rootView, self.__x__ + 19, self.__y__ + 1, self.rootDir + '../res/yards.png')
-        self.yardsLabel = RGBLabel(rootView, self.__x__ + 29, self.__y__, '0')
+        self.yardsLabel = RGBLabel(rootView, self.__x__ + 29, self.__y__, defYards)
 
 
 
 class FootballBoard:
 
-    def __init__(self, rootView):
+    def __init__(self, rootView, defaults=None):
         self.__rootView__ = rootView
+
+        if defaults==None:
+            #set default values here
+            defaults = {
+                "homeScore": "00",
+                "awayScore": "00",
+                "downs": "0",
+                "yards": "0",
+                "quarter": "1",
+                "homeColor": {"R": 0, "G": 255, "B": 255},
+                "awayColor": {"R": 0, "G": 255, "B": 255},
+                "timeSeconds": "0"
+            }
 
         # Views
         self.awayLabel = RGBLabel(self.__rootView__, 0, 0, "GUEST")
-        self.awayScore = RGBLabel(self.__rootView__, 0, 12, "00", TextStyle.IMAGE)
+        self.awayScore = RGBLabel(self.__rootView__, 0, 12, defaults["awayScore"], TextStyle.IMAGE)
         self.homeLabel = RGBLabel(self.__rootView__, 63, 0, "HOME")
-        self.homeScore = RGBLabel(self.__rootView__, 60, 12, "00", TextStyle.IMAGE)
-        self.awayLabel.setColor(graphics.Color(0, 255, 255))
-        self.homeLabel.setColor(graphics.Color(0, 255, 255))
-        self.bsoIndicator = DYIndicator(self.__rootView__, 0, 38)
-        self.periodIndicator = PeriodIndicator(self.__rootView__, 43, 0, 'P')
-        self.clockIndicator = Clock(self.__rootView__, 65, 38)
+        self.homeScore = RGBLabel(self.__rootView__, 60, 12, defaults["homeScore"], TextStyle.IMAGE)
+        defAway = defaults["awayColor"]
+        defHome = defaults["homeColor"]
+        self.awayLabel.setColor(graphics.Color(defAway["R"], defAway["G"], defAway["B"]))
+        self.homeLabel.setColor(graphics.Color(defHome["R"], defHome["G"], defHome["B"]))
+        self.bsoIndicator = DYIndicator(self.__rootView__, 0, 38, defDowns=defaults['downs'], defYards=defaults['yards'])
+        self.periodIndicator = PeriodIndicator(self.__rootView__, 43, 0, 'Q', defPeriod=defaults['quarter'])
+        self.clockIndicator = Clock(self.__rootView__, 65, 38, defSeconds=defaults['timeSeconds'])
 
     def setHomeScore(self, dataStr):
         # TODO make app send correct data instead of fixing here
