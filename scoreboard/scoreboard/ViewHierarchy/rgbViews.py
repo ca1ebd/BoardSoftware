@@ -149,6 +149,7 @@ class RGBBase:
             # options for second-batch boards
             self.__options__.multiplexing = 3
             self.__options__.row_address_type = 2
+            self.__options__.gpio_slowdown = 2
 
 
 

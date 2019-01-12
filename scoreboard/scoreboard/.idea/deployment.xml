@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="lederbord">
+  <component name="PublishConfigData" serverName="lederbord-pi">
     <serverData>
-      <paths name="lederbord">
+      <paths name="lederbord-pi">
         <serverdata>
           <mappings>
-            <mapping deploy="/scoreboard/scoreboard" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/pi/scoreboard/scoreboard" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
     </serverData>
-    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

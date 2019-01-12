@@ -2,10 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="87a686ed-ff35-4c73-91d2-6ca4ca875ff2" name="lederbord" url="http://10.0.0.5">
-        <fileTransfer host="10.0.0.5" port="22" rootFolder="/home/pi" accessType="SFTP">
+      <webServer id="3f2ebca7-4a24-449b-a70d-f0cb7f411283" name="lederbord-pi" url="http://10.0.0.5">
+        <fileTransfer host="10.0.0.5" port="22" accessType="SFTP">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" />
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
           <option name="port" value="22" />
         </fileTransfer>
