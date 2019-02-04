@@ -19,7 +19,9 @@ from stopwatchBoard import StopwatchBoard
 from bootBoard import BootBoard
 from fake_board import FakeBoard
 from ultimateBoard import UltimateBoard
-
+from wrestlingBoard import WrestlingBoard
+from swimmingBoard import SwimmingBoard
+from basketballBoard import BasketballBoard
 
 class FlaskRPC:
 
@@ -178,6 +180,24 @@ class FlaskRPC:
             self.start()
         self.clear()
         self.board = UltimateBoard(self.rootView, defaults=self.checkParams(dataStr))
+
+    def createWrestling(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
+        self.clear()
+        self.board = WrestlingBoard(self.rootView, defaults=self.checkParams(dataStr))
+
+    def createSwimming(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
+        self.clear()
+        self.board = SwimmingBoard(self.rootView, defaults=self.checkParams(dataStr))
+
+    def createBasketball(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
+        self.clear()
+        self.board = BasketballBoard(self.rootView, defaults=self.checkParams(dataStr))
 
     def createStopwatch(self, dataStr=None):
         if self.rootView == None:
