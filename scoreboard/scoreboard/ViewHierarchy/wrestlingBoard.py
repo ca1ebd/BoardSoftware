@@ -12,18 +12,18 @@ class WrestlingBoard:
         if defaults==None:
             #set default values here
             defaults = {
-                "homeScore": "00",
-                "awayScore": "00",
+                "homeScore": "02",
+                "awayScore": "03",
                 "awayColor": {"R": 255, "G": 0, "B": 0},
                 "homeColor": {"R": 0, "G": 255, "B": 0},
                 "timeSeconds": "120",
-                "weightClass": "000",
-                "period": "1"
+                "weightClass": "160",
+                "period": "2"
             }
 
         # Views
         self.awayLabel = RGBLabel(self.__rootView__, 63, 0, "AWAY")
-        self.awayScore = RGBLabel(self.__rootView__, 60, 12, defaults["awayScore"], TextStyle.IMAGE)
+        self.awayScore = RGBLabel(self.__rootView__, 60, 12, defaults["awayScore"], TextStyle.IMAGE_RED)
         self.homeLabel = RGBLabel(self.__rootView__, 5, 0, "HOME")
         self.homeScore = RGBLabel(self.__rootView__, 0, 12, defaults["homeScore"], TextStyle.IMAGE)
         self.weightClass = RGBLabel(self.__rootView__, 0, 36, "WT " + defaults["weightClass"])

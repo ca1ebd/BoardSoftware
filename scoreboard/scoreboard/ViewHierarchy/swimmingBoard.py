@@ -12,8 +12,8 @@ class SwimmingBoard:
         if defaults==None:
             #set default values here
             defaults = {
-                "homeScore": "00",
-                "awayScore": "00",
+                "homeScore": "11",
+                "awayScore": "08",
                 "eventColor": {"R": 0, "G": 255, "B": 255},
                 "heatColor": {"R": 0, "G": 255, "B": 255},
             }
