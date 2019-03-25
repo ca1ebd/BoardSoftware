@@ -19,6 +19,7 @@ from stopwatchBoard import StopwatchBoard
 from bootBoard import BootBoard
 from fake_board import FakeBoard
 from ultimateBoard import UltimateBoard
+from versionBoard import VersionBoard
 
 
 class FlaskRPC:
@@ -178,6 +179,12 @@ class FlaskRPC:
             self.start()
         self.clear()
         self.board = UltimateBoard(self.rootView, defaults=self.checkParams(dataStr))
+
+    def createVersion(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
+        self.clear()
+        self.board = VersionBoard(self.rootView, defaults=self.checkParams(dataStr))
 
     def createStopwatch(self, dataStr=None):
         if self.rootView == None:
