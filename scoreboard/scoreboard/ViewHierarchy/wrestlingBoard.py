@@ -4,7 +4,7 @@ from rgbmatrix import graphics
 
 
 
-class UltimateBoard:
+class WrestlingBoard:
 
     def __init__(self, rootView, defaults=None):
         self.__rootView__ = rootView
@@ -12,23 +12,27 @@ class UltimateBoard:
         if defaults==None:
             #set default values here
             defaults = {
-                "homeScore": "16",
-                "awayScore": "12",
-                "homeColor": {"R": 0, "G": 255, "B": 255},
-                "awayColor": {"R": 0, "G": 255, "B": 255},
-                "timeSeconds": "856"
+                "homeScore": "00",
+                "awayScore": "00",
+                "awayColor": {"R": 255, "G": 0, "B": 0},
+                "homeColor": {"R": 0, "G": 255, "B": 0},
+                "timeSeconds": "0",
+                "weightClass": "0",
+                "period": "1"
             }
 
         # Views
-        self.awayLabel = RGBLabel(self.__rootView__, 63, 0, "AWAY")
-        self.awayScore = RGBLabel(self.__rootView__, 60, 12, defaults["awayScore"], TextStyle.IMAGE)
-        self.homeLabel = RGBLabel(self.__rootView__, 5, 0, "HOME")
+        self.awayLabel = RGBLabel(self.__rootView__, 60, 0, "GUEST")
+        self.awayScore = RGBLabel(self.__rootView__, 60, 12, defaults["awayScore"], TextStyle.IMAGE_RED)
+        self.homeLabel = RGBLabel(self.__rootView__, 4, 0, "HOME")
         self.homeScore = RGBLabel(self.__rootView__, 0, 12, defaults["homeScore"], TextStyle.IMAGE)
+        self.weightClass = RGBLabel(self.__rootView__, 0, 36, "WT " + defaults["weightClass"])
         defAway = defaults["awayColor"]
         defHome = defaults["homeColor"]
         self.awayLabel.setColor(graphics.Color(defAway["R"], defAway["G"], defAway["B"]))
         self.homeLabel.setColor(graphics.Color(defHome["R"], defHome["G"], defHome["B"]))
-        self.clockIndicator = Clock(self.__rootView__, 33, 38, defSeconds=defaults['timeSeconds'])
+        self.clockIndicator = Clock(self.__rootView__, 62, 38, defSeconds=defaults['timeSeconds'])
+        self.periodIndicator = PeriodIndicator(self.__rootView__, 42, 0, 'P', defPeriod= defaults["period"])
 
     def setHomeScore(self, dataStr):
         # TODO make app send correct data instead of fixing here
@@ -61,9 +65,14 @@ class UltimateBoard:
     def setClock(self, dataStr):
         self.clockIndicator.setTime(dataStr)
 
+    def setWeightClass(self, dataStr):
+        self.weightClass.setText("WT " + dataStr)
+
+    def setPeriod(self, dataStr):
+        self.periodIndicator.setPeriod(dataStr)
+
 if __name__ == "__main__":
     rootView = RGBBase()
-    board = SoccerBoard(rootView)
+    board = WrestlingBoard(rootView)
     while True:
         pass
-

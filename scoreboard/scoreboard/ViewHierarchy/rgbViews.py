@@ -64,6 +64,7 @@ class RGBImage(RGBView):
 class TextStyle(Enum):
     FONT = 0
     IMAGE = 1
+    IMAGE_RED = 2
 
 
 class RGBLabel(RGBView):
@@ -79,7 +80,7 @@ class RGBLabel(RGBView):
             super(RGBLabel, self).__init__(parent, x, (y + 10))
             self.__font__ = graphics.Font()
             self.__font__.LoadFont(self.rootDir + "../../fonts/7x13B.bdf")
-        else:
+        elif self.__textStyle__ == TextStyle.IMAGE:
             super(RGBLabel, self).__init__(parent, x, y)
             self.__font__ = []
             self.__font__.append(Image.open(self.rootDir + '../res/bb_0.png').convert('RGB'))
@@ -92,8 +93,20 @@ class RGBLabel(RGBView):
             self.__font__.append(Image.open(self.rootDir + '../res/bb_7.png').convert('RGB'))
             self.__font__.append(Image.open(self.rootDir + '../res/bb_8.png').convert('RGB'))
             self.__font__.append(Image.open(self.rootDir + '../res/bb_9.png').convert('RGB'))
+        elif self.__textStyle__ == TextStyle.IMAGE_RED: # for red colors for wrestling board
+            super(RGBLabel, self).__init__(parent, x, y)
+            num_images = 10
+            self.__font__ = []
+            for i in range(0, 10):
+                self.__font__.append(Image.open(self.rootDir + '../res/bb_' + str(i) + '_red.png').convert('RGB'))
+                #print("Opening: " + self.rootDir + '../res/bb_' + str(i) + '_red.png')
+
         self.__parent__.addView(self)
         self.__parent__.redraw()
+
+
+
+
 
     # Fix the bottom left glitch
     def setOrigin(self, x, y):
@@ -117,6 +130,15 @@ class RGBLabel(RGBView):
         self.__font__ = graphics.Font()
         self.__font__.LoadFont(self.rootDir + fontURL)
         self.__parent__.redraw()
+
+    # def transRed(self):
+    #     data = np.array(self.__font__[0])
+    #     red, green, blue, alpha = data.T
+    #     green_areas = (red == 0) & (blue == 0) & (green == 255)
+    #     data[..., :-1][green_areas.T] = (255, 0, 0)
+    #
+    #     self.__font__[0] = Image.fromarray(data)
+
 
     def render(self, matrix, canvas):
         if self.__textStyle__ == TextStyle.FONT:
@@ -198,7 +220,7 @@ class RGBBase:
         for child in self.__children__:
             if type(child) != RGBLabel:
                 child.render(self.__matrix__, self.__offscreen_canvas__)
-            elif child.__textStyle__ == TextStyle.IMAGE:
+            elif (child.__textStyle__ == TextStyle.IMAGE or child.__textStyle__ == TextStyle.IMAGE_RED):
                 child.render(self.__matrix__, self.__offscreen_canvas__)
 
     def addView(self, view):
