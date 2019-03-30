@@ -10,19 +10,19 @@ class BasketballBoard:
         if defaults==None:
             #set default values here
             defaults = {
-                "homeScore": "75",
-                "awayScore": "63",
-                "period": "3",
+                "homeScore": "00",
+                "awayScore": "00",
+                "period": "1",
                 "homeColor": {"R": 0, "G": 255, "B": 255},
                 "awayColor": {"R": 0, "G": 255, "B": 255},
-                "timeSeconds": "325"
+                "timeSeconds": "0"
             }
 
         # Views
-        self.awayLabel = RGBLabel(self.__rootView__, 63, 0, "AWAY")
-        self.awayScore = RGBLabel(self.__rootView__, 60, 12, defaults["awayScore"], TextStyle.IMAGE)
-        self.homeLabel = RGBLabel(self.__rootView__, 5, 0, "HOME")
-        self.homeScore = RGBLabel(self.__rootView__, 0, 12, defaults["homeScore"], TextStyle.IMAGE)
+        self.awayLabel = RGBLabel(self.__rootView__, 0, 0, "GUEST")
+        self.awayScore = RGBLabel(self.__rootView__, 0, 12, defaults["awayScore"], TextStyle.IMAGE)
+        self.homeLabel = RGBLabel(self.__rootView__, 63, 0, "HOME")
+        self.homeScore = RGBLabel(self.__rootView__, 60, 12, defaults["homeScore"], TextStyle.IMAGE)
         defAway = defaults["awayColor"]
         defHome = defaults["homeColor"]
         self.awayLabel.setColor(graphics.Color(defAway["R"], defAway["G"], defAway["B"]))

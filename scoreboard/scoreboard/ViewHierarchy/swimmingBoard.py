@@ -12,8 +12,8 @@ class SwimmingBoard:
         if defaults==None:
             #set default values here
             defaults = {
-                "homeScore": "11",
-                "awayScore": "08",
+                "homeScore": "00",
+                "awayScore": "00",
                 "eventColor": {"R": 0, "G": 255, "B": 255},
                 "heatColor": {"R": 0, "G": 255, "B": 255},
             }
@@ -56,10 +56,22 @@ class SwimmingBoard:
         blue = int(colorObject["B"])
         self.heatLabel.setColor(graphics.Color(red, green, blue))
 
+    def setEvent(self, dataStr):
+        if len(dataStr) == 1:
+            self.eventScore.setText("0" + dataStr)
+        else:
+            self.eventScore.setText(dataStr)
+
+    def setHeat(self, dataStr):
+        if len(dataStr) == 1:
+            self.heatScore.setText("0" + dataStr)
+        else:
+            self.heatScore.setText(dataStr)
+
 
 if __name__ == "__main__":
     rootView = RGBBase()
-    board = SoccerBoard(rootView)
+    board = SwimmingBoard(rootView)
     while True:
         pass
 
