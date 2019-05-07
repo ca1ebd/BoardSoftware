@@ -15,7 +15,15 @@ class BootBoard:
         # self.logo = self.logo.resize((self.boardWidth, hsize))
         self.bootImage = RGBImage(self.__rootView__,3, 5, self.logo)
         self.connectInfo = ConnectInfo(rootView, 0, 23)
+
+        self.version_label = RGBLabel(self.__rootView__, 75, 33, 'v' + str(self.get_version()))
         print("ran")
+
+    def get_version(self):
+        path = '/home/pi/scoreboard-git/version/version.json'
+        version = json.loads(open(path).read())
+        print version["version"]
+        return version["version"]
 
 class ConnectInfo:
     def __init__(self, rootView, x, y):
