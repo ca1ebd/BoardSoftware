@@ -20,10 +20,10 @@ class UltimateBoard:
             }
 
         # Views
-        self.awayLabel = RGBLabel(self.__rootView__, 63, 0, "AWAY")
-        self.awayScore = RGBLabel(self.__rootView__, 60, 12, defaults["awayScore"], TextStyle.IMAGE)
-        self.homeLabel = RGBLabel(self.__rootView__, 5, 0, "HOME")
-        self.homeScore = RGBLabel(self.__rootView__, 0, 12, defaults["homeScore"], TextStyle.IMAGE)
+        self.homeLabel = RGBLabel(self.__rootView__, 63, 0, "HOME")
+        self.homeScore = RGBLabel(self.__rootView__, 60, 12, defaults["homeScore"], TextStyle.IMAGE)
+        self.awayLabel = RGBLabel(self.__rootView__, 5, 0, "GUEST")
+        self.awayScore = RGBLabel(self.__rootView__, 0, 12, defaults["awayScore"], TextStyle.IMAGE)
         defAway = defaults["awayColor"]
         defHome = defaults["homeColor"]
         self.awayLabel.setColor(graphics.Color(defAway["R"], defAway["G"], defAway["B"]))
@@ -63,7 +63,7 @@ class UltimateBoard:
 
 if __name__ == "__main__":
     rootView = RGBBase()
-    board = SoccerBoard(rootView)
+    board = UltimateBoard(rootView)
     while True:
         pass
 

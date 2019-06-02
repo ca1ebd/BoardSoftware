@@ -22,10 +22,10 @@ class WrestlingBoard:
             }
 
         # Views
-        self.awayLabel = RGBLabel(self.__rootView__, 60, 0, "GUEST")
-        self.awayScore = RGBLabel(self.__rootView__, 60, 12, defaults["awayScore"], TextStyle.IMAGE_RED)
-        self.homeLabel = RGBLabel(self.__rootView__, 4, 0, "HOME")
-        self.homeScore = RGBLabel(self.__rootView__, 0, 12, defaults["homeScore"], TextStyle.IMAGE)
+        self.homeLabel = RGBLabel(self.__rootView__, 60, 0, "HOME")
+        self.homeScore = RGBLabel(self.__rootView__, 60, 12, defaults["awayScore"], TextStyle.IMAGE_RED)
+        self.awayLabel = RGBLabel(self.__rootView__, 4, 0, "GUEST")
+        self.awayScore = RGBLabel(self.__rootView__, 0, 12, defaults["homeScore"], TextStyle.IMAGE)
         self.weightClass = RGBLabel(self.__rootView__, 0, 36, "WT " + defaults["weightClass"])
         defAway = defaults["awayColor"]
         defHome = defaults["homeColor"]
