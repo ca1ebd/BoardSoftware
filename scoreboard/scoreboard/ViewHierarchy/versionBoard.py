@@ -9,7 +9,7 @@ class VersionBoard:
 
 
         # Views
-        self.versionNum = 21
+        self.versionNum = 22
         self.versionLabel = RGBLabel(self.__rootView__, 9, 18, "VERSION: " + str(self.versionNum))
         self.versionLabel.setColor(graphics.Color(0, 255, 255))
 
