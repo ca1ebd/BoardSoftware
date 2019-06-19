@@ -159,6 +159,8 @@ class RGBBase:
         self.__options__.cols = 32
         self.__options__.chain_length = 3
         self.__options__.parallel = 3
+        self.__options__.brightness = 100
+        self.__options__.pwm_bits = 1
         self.__board_info__ = self._getBoardInfo()
 
 
