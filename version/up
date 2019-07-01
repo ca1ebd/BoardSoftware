@@ -1,4 +1,3 @@
 #!/bin/bash
 
 echo "Versioning UP!"
-mkdir /home/pi/script_test
