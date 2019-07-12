@@ -90,7 +90,7 @@ class BaseballBoard:
         self.awayLabel = RGBLabel(self.__rootView__, 0, 0, "GUEST")
         self.awayScore = RGBLabel(self.__rootView__, 0, 12, str(defaults["awayScore"]), TextStyle.IMAGE)
         self.homeScore = RGBLabel(self.__rootView__, 60, 12, str(defaults["homeScore"]), TextStyle.IMAGE)
-        self.homeLabel = RGBLabel(self.__rootView__, 63, 0, "HOME")
+        self.homeLabel = RGBLabel(self.__rootView__, 65, 0, "HOME")
         defAway = defaults["awayColor"]
         defHome = defaults["homeColor"]
         self.awayLabel.setColor(graphics.Color(defAway["R"], defAway["G"], defAway["B"]))
