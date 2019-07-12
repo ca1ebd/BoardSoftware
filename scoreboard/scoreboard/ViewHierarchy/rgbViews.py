@@ -312,3 +312,9 @@ class Clock:
         self.format = dataStr
         self.setTime(self.getTimeStr())
 
+    def makeGreen(self):
+        green = graphics.Color(0, 255, 0)
+        self.minLabel.setColor(green)
+        self.secLabel.setColor(green)
+        self.seperatorImage = RGBImage(self.__rootView__, self.__x__+14, self.__y__+1, self.rootDir + '../res/clocksep_green.png')
+
