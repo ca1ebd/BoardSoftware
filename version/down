@@ -1,3 +1,6 @@
 #!/bin/bash
 
+mkdir /home/pi/vers_down_test
+
 echo "Versioning DOWN!"
+sudo chmod +x /home/pi/scoreboard-git/scoreboard/scoreboard/ViewHierarchy/FlaskRPC.py

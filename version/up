@@ -1,4 +1,6 @@
 #!/bin/bash
 
+mkdir /home/pi/vers_up_test
+
 echo "Versioning UP!"
 sudo chmod +x /home/pi/scoreboard-git/scoreboard/scoreboard/ViewHierarchy/FlaskRPC.py
