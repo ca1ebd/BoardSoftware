@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir /home/pi/inter_up_test
+
 echo "Versioning DOWN!"
 sudo chmod +x /home/pi/scoreboard-git/scoreboard/scoreboard/ViewHierarchy/FlaskRPC.py
 sudo chmod +x /home/pi/scoreboard-git/scoreboard/scoreboard/update/update.py
