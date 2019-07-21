@@ -1,7 +1,11 @@
 #!/bin/bash
 
-mkdir /home/pi/vers_down_test
-
 echo "Versioning DOWN!"
 sudo chmod +x /home/pi/scoreboard-git/scoreboard/scoreboard/ViewHierarchy/FlaskRPC.py
+sudo chmod +x /home/pi/scoreboard-git/scoreboard/scoreboard/update/update.py
+
+sudo chmod +x updater/FlaskServer.py
+sudo chmod +x updater/UpdateService.py
+sudo cp -r -p updater /home/pi
+
 sync
