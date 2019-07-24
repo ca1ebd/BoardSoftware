@@ -24,6 +24,7 @@ from swimmingBoard import SwimmingBoard
 from basketballBoard import BasketballBoard
 from volleyballBoard import VolleyballBoard
 from versionBoard import VersionBoard
+from testBoard1 import TestBoard1
 
 
 class FlaskRPC:
@@ -219,6 +220,13 @@ class FlaskRPC:
             self.start()
         self.clear()
         self.board = StopwatchBoard(self.rootView)
+
+    def createTest1(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
+        self.clear()
+        self.board = TestBoard1(self.rootView, defaults=self.checkParams(dataStr))
+
 
     def createBoot(self, dataStr=None):
         if self.rootView == None:
