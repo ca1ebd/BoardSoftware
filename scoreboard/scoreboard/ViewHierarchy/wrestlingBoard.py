@@ -14,17 +14,17 @@ class WrestlingBoard:
             defaults = {
                 "homeScore": "00",
                 "awayScore": "00",
-                "awayColor": {"R": 255, "G": 0, "B": 0},
-                "homeColor": {"R": 0, "G": 255, "B": 0},
+                "awayColor": {"R": 0, "G": 255, "B": 0},
+                "homeColor": {"R": 255, "G": 0, "B": 0},
                 "timeSeconds": "0",
                 "weightClass": "0",
                 "period": "1"
             }
 
         # Views
-        self.homeLabel = RGBLabel(self.__rootView__, 60, 0, "HOME")
+        self.homeLabel = RGBLabel(self.__rootView__, 63, 0, "HOME")
         self.homeScore = RGBLabel(self.__rootView__, 60, 12, defaults["awayScore"], TextStyle.IMAGE_RED)
-        self.awayLabel = RGBLabel(self.__rootView__, 4, 0, "GUEST")
+        self.awayLabel = RGBLabel(self.__rootView__, 0, 0, "GUEST")
         self.awayScore = RGBLabel(self.__rootView__, 0, 12, defaults["homeScore"], TextStyle.IMAGE)
         self.weightClass = RGBLabel(self.__rootView__, 0, 36, "WT " + defaults["weightClass"])
         defAway = defaults["awayColor"]

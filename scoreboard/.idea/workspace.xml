@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99897a64-fd87-4c83-82a7-4e003753d5e3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/scoreboard/ViewHierarchy/testBoard1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scoreboard/ViewHierarchy/FlaskRPC.py" beforeDir="false" afterPath="$PROJECT_DIR$/scoreboard/ViewHierarchy/FlaskRPC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="ProjectId" id="1P1YSmdsljkefnMeFdsAsLCyif2" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -132,6 +131,8 @@
       <workItem from="1560973209628" duration="6195000" />
       <workItem from="1560982010694" duration="1194000" />
       <workItem from="1562892811947" duration="2466000" />
+      <workItem from="1565043091404" duration="1922000" />
+      <workItem from="1567635806093" duration="56000" />
     </task>
     <servers />
   </component>
@@ -143,7 +144,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
