@@ -98,7 +98,7 @@ class TennisBoard:
 
         # self.homeLabel.setFont()
 
-    def set_set_score(self, dataStr):
+    def setSetScore(self, dataStr):
         data_parse = json.loads(dataStr)
         chosen_label = self.set_ids[data_parse['setID']]
         #make sure that only single digit given

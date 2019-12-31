@@ -17,7 +17,7 @@ from lacrosseBoard import LacrosseBoard
 from footballBoard import FootballBoard
 from stopwatchBoard import StopwatchBoard
 from bootBoard import BootBoard
-from fake_board import FakeBoard
+# from fake_board import FakeBoard
 from ultimateBoard import UltimateBoard
 from wrestlingBoard import WrestlingBoard
 from swimmingBoard import SwimmingBoard
@@ -25,6 +25,7 @@ from basketballBoard import BasketballBoard
 from volleyballBoard import VolleyballBoard
 from versionBoard import VersionBoard
 from testBoard1 import TestBoard1
+from tennisBoard import TennisBoard
 
 
 class FlaskRPC:
@@ -227,6 +228,11 @@ class FlaskRPC:
         self.clear()
         self.board = TestBoard1(self.rootView, defaults=self.checkParams(dataStr))
 
+    def createTennis(self, dataStr=None):
+        if self.rootView == None:
+            self.start()
+        self.clear()
+        self.board = TennisBoard(self.rootView, defaults=self.checkParams(dataStr))
 
     def createBoot(self, dataStr=None):
         if self.rootView == None:
