@@ -70,16 +70,16 @@ class TextStyle(Enum):
 class RGBLabel(RGBView):
 
     # X, Y is at BOTTOM LEFT for draw!!!
-    def __init__(self, parent, x, y, text="", textStyle=TextStyle.FONT):
+    def __init__(self, parent, x, y, text="", textStyle=TextStyle.FONT, font_path="../../fonts/7x13B.bdf", font_y_offset=10, draw=True):
         # type: (RGBBase, int, int, str, TextStyle) -> None
         self.__text__ = text
         self.__textStyle__ = textStyle
         self.__color__ = graphics.Color(255, 255, 255)
 
         if self.__textStyle__ == TextStyle.FONT:
-            super(RGBLabel, self).__init__(parent, x, (y + 10))
+            super(RGBLabel, self).__init__(parent, x, (y + font_y_offset))
             self.__font__ = graphics.Font()
-            self.__font__.LoadFont(self.rootDir + "../../fonts/7x13B.bdf")
+            self.__font__.LoadFont(self.rootDir + font_path)
         elif self.__textStyle__ == TextStyle.IMAGE:
             super(RGBLabel, self).__init__(parent, x, y)
             self.__font__ = []
@@ -102,7 +102,7 @@ class RGBLabel(RGBView):
                 #print("Opening: " + self.rootDir + '../res/bb_' + str(i) + '_red.png')
 
         self.__parent__.addView(self)
-        self.__parent__.redraw()
+        # self.__parent__.redraw()
 
 
 
