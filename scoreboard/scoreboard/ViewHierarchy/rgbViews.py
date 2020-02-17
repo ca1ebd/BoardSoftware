@@ -69,6 +69,11 @@ class TextStyle(Enum):
 
 class RGBLabel(RGBView):
 
+    # Cache the font's that have already been loaded to reduce load time
+    # Key: the file path for the BDF file
+    # Value: The graphics.Font() object
+    fonts = {}
+
     # X, Y is at BOTTOM LEFT for draw!!!
     def __init__(self, parent, x, y, text="", textStyle=TextStyle.FONT, font_path="../../fonts/7x13B.bdf", font_y_offset=10, draw=True):
         # type: (RGBBase, int, int, str, TextStyle) -> None
@@ -78,8 +83,10 @@ class RGBLabel(RGBView):
 
         if self.__textStyle__ == TextStyle.FONT:
             super(RGBLabel, self).__init__(parent, x, (y + font_y_offset))
-            self.__font__ = graphics.Font()
-            self.__font__.LoadFont(self.rootDir + font_path)
+            if font_path not in RGBLabel.fonts:
+                RGBLabel.fonts[font_path] = graphics.Font()
+                RGBLabel.fonts[font_path].LoadFont(self.rootDir + font_path)
+            self.__font__ = RGBLabel.fonts[font_path]
         elif self.__textStyle__ == TextStyle.IMAGE:
             super(RGBLabel, self).__init__(parent, x, y)
             self.__font__ = []
@@ -127,8 +134,10 @@ class RGBLabel(RGBView):
         self.__parent__ .redraw()
 
     def setFont(self, fontURL):
-        self.__font__ = graphics.Font()
-        self.__font__.LoadFont(self.rootDir + fontURL)
+        if fontURL not in RGBLabel.fonts:
+            RGBLabel.fonts[fontURL] = graphics.Font()
+            RGBLabel.fonts[fontURL].LoadFont(self.rootDir + fontURL)
+        self.__font__ = RGBLabel.fonts[fontURL]
         self.__parent__.redraw()
 
     # def transRed(self):
